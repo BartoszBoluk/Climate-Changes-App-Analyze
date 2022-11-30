@@ -8,5 +8,6 @@
     <string name="textCity">Wybierz Miasto:</string>
     <string name="textFirstYear">Podaj pierwszy rok</string>
     <string name="textSecondYear">Podaj drugi rok</string>
-    <string name="textAnalyse">Wykonaj analize</string>
+    <string name="textAnalyse">Wykonaj analize dla </string>
+    <string name="buttonHelp">Co oznacza wynik?</string>
 </resources>
