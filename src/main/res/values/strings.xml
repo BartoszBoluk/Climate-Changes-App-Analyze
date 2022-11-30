@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Climate Changes Analysis</string>
+    <string name="textMeteorologicalChanges">Zmiany\nmeteorologiczne</string>
+    <string name="textActinometricChanges">Zmiany\naktynometryczne</string>
+    <string name="textHydrologicalChanges">Zmiany\nhydrologiczne</string>
+    <string name="textAboutProgram">O Programie</string>
+    <string name="infoAboutProgram">Autor: Bartosz Boluk\n\nWersja: 1.0\n\nCel Programu: celem programu jest analiza zmian klimatyczych w wybranych przez użytkownika obszarach w polsce</string>
+    <string name="textCity">Wybierz Miasto:</string>
+    <string name="textFirstYear">Podaj pierwszy rok</string>
+    <string name="textSecondYear">Podaj drugi rok</string>
+    <string name="textAnalyse">Wykonaj analize</string>
+</resources>
