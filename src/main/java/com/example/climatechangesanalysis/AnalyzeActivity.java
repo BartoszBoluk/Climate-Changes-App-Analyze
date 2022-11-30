@@ -13,6 +13,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class AnalyzeActivity extends AppCompatActivity {
@@ -33,6 +34,7 @@ public class AnalyzeActivity extends AppCompatActivity {
             URL_SecondDate9, URL_SecondDate10, URL_SecondDate11, URL_SecondDate12;
     private String mZweryfikowany, mFileName, mYear1, mYear2, link_w;
     private String mFirstDate, mSecondDate;
+    public static boolean noData = false;
 
 
     @SuppressLint("MissingInflatedId")
@@ -91,7 +93,6 @@ public class AnalyzeActivity extends AppCompatActivity {
 
     class Content extends AsyncTask<Void, Void, Void> {
 
-
         ArrayList<String> ls = new ArrayList<>();
 
         @Override
@@ -103,7 +104,8 @@ public class AnalyzeActivity extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
 
             org.jsoup.nodes.Document document = null;
-            org.jsoup.nodes.Document documentSecondDate = null;
+
+            noData = false;
 
             if (mFirstDate.equals("1990")) {
                 mYear1 = "90";
@@ -260,7 +262,7 @@ public class AnalyzeActivity extends AppCompatActivity {
                 mFileName = "TOR";
                 mZweryfikowany = "Zweryfikowane";
             } else if (mCityName.equals("Wieluń")) {
-                mFileName = "GAS";
+                mFileName = "GSA";
                 mZweryfikowany = "zweryfikowane";
             } else if (mCityName.equals("Zakopane")) {
                 mFileName = "ZAK";
@@ -327,7 +329,7 @@ public class AnalyzeActivity extends AppCompatActivity {
             float secondDate11 = getData(URL_SecondDate11, document, mResultSecondDate11);
             float secondDate12 = getData(URL_SecondDate12, document, mResultSecondDate12);
 
-            System.out.println("TEST" + URL_SecondDate4);
+            System.out.println("TEST: " + noData);
 
 
             float finaResultFirstDate = firstDate1 + firstDate2 + firstDate3 + firstDate4 + firstDate5 +
@@ -338,10 +340,25 @@ public class AnalyzeActivity extends AppCompatActivity {
 
             if (finaResultFirstDate > finalResultSecondDate) {
                 finalResult = 100 - ((finalResultSecondDate * 100) / finaResultFirstDate);
-                mReuslt.setText("Wartość rocznej uśrednionej wartości całkowitego promieniowania zmniejszyła się o " + finalResult + " %.");
+
+                if (noData == true) {
+                    mReuslt.setText("Wynik jest newpewny z powodu braku danych. Wartość rocznej uśrednionej wartości całkowitego promieniowania " +
+                            "zmniejszyła się o " + new DecimalFormat("###.##").format(finalResult) + " %.");
+                } else {
+                    mReuslt.setText("Wartość rocznej uśrednionej wartości całkowitego promieniowania " +
+                            "zmniejszyła się o " + new DecimalFormat("###.##").format(finalResult) + " %.");
+                }
+
             } else {
                 finalResult = 100 - ((finaResultFirstDate * 100) / finalResultSecondDate);
-                mReuslt.setText("Wartość rocznej uśrednionej wartości całkowitego promieniowania zwiększyła się o " + finalResult + " %.");
+
+                if (noData == true) {
+                    mReuslt.setText("Wartość rocznej uśrednionej wartości całkowitego promieniowania " +
+                            "zwiększyła się o " + new DecimalFormat("###.##").format(finalResult) + " %.");
+                } else {
+                    mReuslt.setText("Wartość rocznej uśrednionej wartości całkowitego promieniowania " +
+                            "zwiększyła się o " + new DecimalFormat("###.##").format(finalResult) + " %.");
+                }
             }
 
 
@@ -380,7 +397,11 @@ public class AnalyzeActivity extends AppCompatActivity {
                 String[] splitStr = s.split("\\s+");
 
                 for (int i = 0; i < splitStr.length; i++) {
-                    if (splitStr[i].equals("CM12-890154") || splitStr[i].equals("58") || splitStr[i].equals("DR02\\58") || splitStr[i].equals("DR02\\48") || splitStr[i].equals("80-70420") || splitStr[i].equals("740145") ||
+                    if (splitStr[i].equals("CM12-890154") || splitStr[i].equals("DR03\\78") ||
+                            splitStr[i].equals("900197") || splitStr[i].equals("DR02\\38") ||
+                            splitStr[i].equals("DR02\\50") || splitStr[i].equals("58") ||
+                            splitStr[i].equals("DR02\\58") || splitStr[i].equals("DR02\\48") ||
+                            splitStr[i].equals("80-70420") || splitStr[i].equals("740145") ||
                             splitStr[i].equals("DR03/75") || splitStr[i].equals("DR03\\75") ||
                             splitStr[i].equals("DR02\\49") || splitStr[i].equals("DR02\\29") ||
                             splitStr[i].equals("DR02/29") || splitStr[i].equals("7415323.") ||
@@ -418,9 +439,11 @@ public class AnalyzeActivity extends AppCompatActivity {
                     }
                 }
 
-                textView.setText("" + averageData / 28);
+                averageData = averageData / 28;
+                textView.setText("" + new DecimalFormat("##.##").format(averageData));
             } else {
                 textView.setText("brak danych");
+                noData = true;
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -635,20 +658,58 @@ public class AnalyzeActivity extends AppCompatActivity {
                 link_w = "";
             }
 
-            if (Integer.parseInt(date) == 2007 && month ==  "07") {
+            if (Integer.parseInt(date) == 2007 && month == "07") {
                 link_w = "uzupel bez QKDS";
-            } else if (Integer.parseInt(date) == 2007 && month ==  "08") {
+            } else if (Integer.parseInt(date) == 2007 && month == "08") {
                 link_w = "uzupel";
-            } else if (Integer.parseInt(date) == 2008 && (month ==  "04" || month ==  "05" ||
-                    month ==  "06" || month ==  "07" || month ==  "08" || month ==  "11")) {
+            } else if (Integer.parseInt(date) == 2008 && (month == "04" || month == "05" ||
+                    month == "06" || month == "07" || month == "08" || month == "11")) {
                 link_dan = ".dan";
-            } else if (Integer.parseInt(date) == 2009 && (month ==  "02" || month ==  "04" ||
-                    month ==  "09" || month ==  "10" || month ==  "11" || month ==  "12")) {
+            } else if (Integer.parseInt(date) == 2009 && (month == "02" || month == "04" ||
+                    month == "09" || month == "10" || month == "11" || month == "12")) {
                 link_dan = ".dan";
             } else if (Integer.parseInt(date) == 2010) {
                 link_dan = ".dan";
-            } else if (Integer.parseInt(date) == 2011 && (month ==  "01" || month ==  "02" ||
-                    month ==  "03")) {
+            } else if (Integer.parseInt(date) == 2011 && (month == "01" || month == "02" ||
+                    month == "03")) {
+                link_dan = ".dan";
+            }
+        } else if (cityName.equals("Toruń")) {
+            link_w = "";
+            link_dan = ".DAN";
+        } else if (cityName.equals("Wieluń")) {
+            link_w = "";
+            link_dan = ".DAN";
+
+            if (Integer.parseInt(date) == 2008 && month == "07") {
+                link_dan = ".dan";
+            } else if (Integer.parseInt(date) == 2009 && month == "02") {
+                link_dan = ".dan";
+            } else if (Integer.parseInt(date) == 2010 && month == "11") {
+                link_dan = ".dan";
+            } else if (Integer.parseInt(date) == 2013) {
+                link_w = "_w";
+            } else if (Integer.parseInt(date) == 2014 && month == "07") {
+                link_dan = ".dan";
+            }
+        } else if (cityName.equals("Zakopane")) {
+            if (Integer.parseInt(date) <= 2000) {
+                link_w = "_w";
+            } else {
+                link_w = "";
+            }
+
+            if (Integer.parseInt(date) == 2008 && month == "07") {
+                link_dan = ".dan";
+            } else if (Integer.parseInt(date) == 2008 && month == "05") {
+                shortCityName = "Zak";
+            } else if (Integer.parseInt(date) == 2015 && (month == "07" || month == "08")) {
+                link_dan = ".dan";
+            } else if (Integer.parseInt(date) == 2016 || Integer.parseInt(date) == 2017) {
+                link_w = "cg";
+            }
+
+            if (Integer.parseInt(date) == 2016 && (month == "07" || month == "08" || month == "12")) {
                 link_dan = ".dan";
             }
         }

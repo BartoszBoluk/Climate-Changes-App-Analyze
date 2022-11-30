@@ -55,7 +55,7 @@ public class ActinometricActivity extends AppCompatActivity {
         //arrayList.add("Piła");
         //arrayList.add("Puławy");
         //arrayList.add("Sulejów");
-        arrayList.add("Suwałki");
+        //arrayList.add("Suwałki");
         arrayList.add("Toruń");
         arrayList.add("Wieluń");
         arrayList.add("Zakopane");

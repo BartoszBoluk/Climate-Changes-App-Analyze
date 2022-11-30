@@ -334,9 +334,9 @@
 
     <TextView
         android:id="@+id/result"
-        android:layout_width="355dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="366dp"
+        android:layout_height="101dp"
+        android:layout_marginTop="16dp"
         android:text="TextView"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -505,7 +505,7 @@
         android:id="@+id/buttonHelp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="@string/buttonHelp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
