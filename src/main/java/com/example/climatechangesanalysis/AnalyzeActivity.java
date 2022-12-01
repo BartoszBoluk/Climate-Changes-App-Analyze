@@ -2,6 +2,7 @@ package com.example.climatechangesanalysis;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -342,7 +343,7 @@ public class AnalyzeActivity extends AppCompatActivity {
                 finalResult = 100 - ((finalResultSecondDate * 100) / finaResultFirstDate);
 
                 if (noData == true) {
-                    mReuslt.setText("Wynik jest newpewny z powodu braku danych. Wartość rocznej uśrednionej wartości całkowitego promieniowania " +
+                    mReuslt.setText("Wynik niepewny.\nWartość rocznej uśrednionej wartości całkowitego promieniowania " +
                             "zmniejszyła się o " + new DecimalFormat("###.##").format(finalResult) + " %.");
                 } else {
                     mReuslt.setText("Wartość rocznej uśrednionej wartości całkowitego promieniowania " +
@@ -353,7 +354,7 @@ public class AnalyzeActivity extends AppCompatActivity {
                 finalResult = 100 - ((finaResultFirstDate * 100) / finalResultSecondDate);
 
                 if (noData == true) {
-                    mReuslt.setText("Wartość rocznej uśrednionej wartości całkowitego promieniowania " +
+                    mReuslt.setText("Wynik niepewny.\nWartość rocznej uśrednionej wartości całkowitego promieniowania " +
                             "zwiększyła się o " + new DecimalFormat("###.##").format(finalResult) + " %.");
                 } else {
                     mReuslt.setText("Wartość rocznej uśrednionej wartości całkowitego promieniowania " +
@@ -375,6 +376,7 @@ public class AnalyzeActivity extends AppCompatActivity {
      * Funkcja sprawdza podany link. Jeśli istnieje to pobiera dane i zapisuje w podanym
      * TextView. Natomiast jeśli nie istnieje to ustawia text na "brak danych".
      */
+    @SuppressLint("ResourceAsColor")
     public static float getData(String URL, Document document, TextView textView) {
 
         float averageData = 0;
@@ -442,6 +444,7 @@ public class AnalyzeActivity extends AppCompatActivity {
                 averageData = averageData / 28;
                 textView.setText("" + new DecimalFormat("##.##").format(averageData));
             } else {
+                textView.setTextColor(Color.rgb(255,0,0));
                 textView.setText("brak danych");
                 noData = true;
             }
