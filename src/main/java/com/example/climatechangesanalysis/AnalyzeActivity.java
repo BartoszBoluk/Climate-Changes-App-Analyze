@@ -19,22 +19,14 @@ import java.util.ArrayList;
 
 public class AnalyzeActivity extends AppCompatActivity {
 
-    private TextView mTextView, mReuslt, mTextViewFirstDate, mTextViewSecondDate;
+    private TextView mResult;
     private TextView mResultFirstDate, mResultFirstDate2, mResultFirstDate3, mResultFirstDate4, mResultFirstDate5,
             mResultFirstDate6, mResultFirstDate7, mResultFirstDate8, mResultFirstDate9,
             mResultFirstDate10, mResultFirstDate11, mResultFirstDate12;
     private TextView mResultSecondDate, mResultSecondDate2, mResultSecondDate3, mResultSecondDate4, mResultSecondDate5,
             mResultSecondDate6, mResultSecondDate7, mResultSecondDate8, mResultSecondDate9,
             mResultSecondDate10, mResultSecondDate11, mResultSecondDate12;
-    private String mCityName;
-    private String URL_FirstDate, URL_FirstDate2, URL_FirstDate3, URL_FirstDate4, URL_FirstDate5,
-            URL_FirstDate6, URL_FirstDate7, URL_FirstDate8, URL_FirstDate9, URL_FirstDate10,
-            URL_FirstDate11, URL_FirstDate12;
-    private String URL_SecondDate, URL_SecondDate2, URL_SecondDate3,
-            URL_SecondDate4, URL_SecondDate5, URL_SecondDate6, URL_SecondDate7, URL_SecondDate8,
-            URL_SecondDate9, URL_SecondDate10, URL_SecondDate11, URL_SecondDate12;
-    private String mZweryfikowany, mFileName, mYear1, mYear2, link_w;
-    private String mFirstDate, mSecondDate;
+    private String mFirstDate, mSecondDate, mCityName;
     public static boolean noData = false;
 
 
@@ -43,6 +35,8 @@ public class AnalyzeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analize);
+
+        TextView mTextViewFirstDate, mTextViewSecondDate, mTextView;
 
         // TextView poszczególnych miesięcy 1-12 dla pierwszej daty
         mTextView = findViewById(R.id.textView);
@@ -73,7 +67,7 @@ public class AnalyzeActivity extends AppCompatActivity {
         mResultSecondDate11 = findViewById(R.id.resultSecondDate11);
         mResultSecondDate12 = findViewById(R.id.resultSecondDate12);
 
-        mReuslt = findViewById(R.id.result);
+        mResult = findViewById(R.id.result);
 
         Intent intent = getIntent();
         mCityName = intent.getStringExtra("keyCityName");
@@ -104,8 +98,16 @@ public class AnalyzeActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
 
-            org.jsoup.nodes.Document document = null;
+            String URL_FirstDate, URL_FirstDate2, URL_FirstDate3, URL_FirstDate4, URL_FirstDate5,
+                    URL_FirstDate6, URL_FirstDate7, URL_FirstDate8, URL_FirstDate9, URL_FirstDate10,
+                    URL_FirstDate11, URL_FirstDate12;
+            String URL_SecondDate, URL_SecondDate2, URL_SecondDate3,
+                    URL_SecondDate4, URL_SecondDate5, URL_SecondDate6, URL_SecondDate7, URL_SecondDate8,
+                    URL_SecondDate9, URL_SecondDate10, URL_SecondDate11, URL_SecondDate12;
+            String mZweryfikowany, mFileName, mYear1, mYear2;
+            String link_w = "";
 
+            org.jsoup.nodes.Document document = null;
             noData = false;
 
             if (mFirstDate.equals("1990")) {
@@ -343,10 +345,10 @@ public class AnalyzeActivity extends AppCompatActivity {
                 finalResult = 100 - ((finalResultSecondDate * 100) / finaResultFirstDate);
 
                 if (noData == true) {
-                    mReuslt.setText("Wynik niepewny.\nWartość rocznej uśrednionej wartości całkowitego promieniowania " +
+                    mResult.setText("Wynik niepewny.\nWartość rocznej uśrednionej wartości całkowitego promieniowania " +
                             "zmniejszyła się o " + new DecimalFormat("###.##").format(finalResult) + " %.");
                 } else {
-                    mReuslt.setText("Wartość rocznej uśrednionej wartości całkowitego promieniowania " +
+                    mResult.setText("Wartość rocznej uśrednionej wartości całkowitego promieniowania " +
                             "zmniejszyła się o " + new DecimalFormat("###.##").format(finalResult) + " %.");
                 }
 
@@ -354,10 +356,10 @@ public class AnalyzeActivity extends AppCompatActivity {
                 finalResult = 100 - ((finaResultFirstDate * 100) / finalResultSecondDate);
 
                 if (noData == true) {
-                    mReuslt.setText("Wynik niepewny.\nWartość rocznej uśrednionej wartości całkowitego promieniowania " +
+                    mResult.setText("Wynik niepewny.\nWartość rocznej uśrednionej wartości całkowitego promieniowania " +
                             "zwiększyła się o " + new DecimalFormat("###.##").format(finalResult) + " %.");
                 } else {
-                    mReuslt.setText("Wartość rocznej uśrednionej wartości całkowitego promieniowania " +
+                    mResult.setText("Wartość rocznej uśrednionej wartości całkowitego promieniowania " +
                             "zwiększyła się o " + new DecimalFormat("###.##").format(finalResult) + " %.");
                 }
             }
@@ -444,7 +446,7 @@ public class AnalyzeActivity extends AppCompatActivity {
                 averageData = averageData / 28;
                 textView.setText("" + new DecimalFormat("##.##").format(averageData));
             } else {
-                textView.setTextColor(Color.rgb(255,0,0));
+                textView.setTextColor(Color.rgb(255, 0, 0));
                 textView.setText("brak danych");
                 noData = true;
             }

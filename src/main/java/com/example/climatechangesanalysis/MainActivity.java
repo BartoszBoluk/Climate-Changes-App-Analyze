@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         mButtonMeteo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(view, ActinometricActivity.class);
+                startActivity(view, MeteorologicalActivity.class);
             }
         });
 
@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(view, ActinometricActivity.class);
-                ;
             }
         });
 
