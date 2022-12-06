@@ -7,48 +7,12 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text=""
-        android:textAlignment="center"
-        android:textSize="48sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/buttonMeteo"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="64dp"
-        android:text="@string/textMeteorologicalChanges"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textTitle" />
-
-    <Button
-        android:id="@+id/buttonAcro"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/textActinometricChanges"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonMeteo" />
-
-    <Button
-        android:id="@+id/buttonAbout"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/textAboutProgram"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAcro" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
