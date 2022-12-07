@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Analiza zmian klimatycznych</string>
-    <string name="textMeteorologicalChanges">Zmiany\nmeteorologiczne</string>
+    <string name="textMeteorologicalChanges">Zmiany\nklimatyczne</string>
     <string name="textActinometricChanges">Zmiany\naktynometryczne</string>
     <string name="textHydrologicalChanges">Zmiany\nhydrologiczne</string>
     <string name="textAboutProgram">O Programie</string>

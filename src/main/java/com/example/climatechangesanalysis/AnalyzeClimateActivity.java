@@ -46,6 +46,7 @@ public class AnalyzeClimateActivity extends AppCompatActivity {
             mClimateResultSecondDate9, mClimateResultSecondDate10, mClimateResultSecondDate11,
             mClimateResultSecondDate12;
     private String mCityName, mFirstYear, mSecondYear;
+    public static boolean noData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,6 +142,7 @@ public class AnalyzeClimateActivity extends AppCompatActivity {
             buttonStart.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    noData = false;
 
                     // Wywoływanie funkcji getData, zapisywanie wyniku do zmiennej float.
                     float firstDate1 = getData(file1, mFirstYear, "01",
@@ -205,12 +207,23 @@ public class AnalyzeClimateActivity extends AppCompatActivity {
                     float finalAverageScore = averageFirstDate - averageSecondDate;
 
                     if (averageFirstDate > averageSecondDate) {
-                        mFinalResultTextView.setText("Średnia roczna temperatura zmalała o " +
-                                new DecimalFormat("###.##").format(finalAverageScore) + "°.");
+                        if (noData == false) {
+                            mFinalResultTextView.setText("Średnia roczna temperatura zmalała o " +
+                                    new DecimalFormat("###.##").format(finalAverageScore) + "°.");
+                        } else {
+                            mFinalResultTextView.setText("Wynik niepewny.\nŚrednia roczna temperatura zmalała o " +
+                                    new DecimalFormat("###.##").format(finalAverageScore) + "°.");
+                        }
                     } else {
                         finalAverageScore *= -1;
-                        mFinalResultTextView.setText("Średnia roczna temperatura zwiększyła się o " +
-                                new DecimalFormat("###.##").format(finalAverageScore) + "°.");
+                        if (noData == false) {
+                            mFinalResultTextView.setText("Średnia roczna temperatura zwiększyła się o " +
+                                    new DecimalFormat("###.##").format(finalAverageScore) + "°.");
+                        } else {
+                            mFinalResultTextView.setText("Wynik niepewny.\nŚrednia roczna temperatura zwiększyła się o " +
+                                    new DecimalFormat("###.##").format(finalAverageScore) + "°.");
+                        }
+
                     }
                 }
             });
@@ -392,6 +405,7 @@ public class AnalyzeClimateActivity extends AppCompatActivity {
         if (textView.getText().equals(".")) {
             textView.setTextColor(Color.rgb(255, 0, 0));
             textView.setText("brak danych");
+            noData = true;
         }
 
         return average;

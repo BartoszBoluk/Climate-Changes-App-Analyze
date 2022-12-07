@@ -23,7 +23,7 @@ public class MeteorologicalActivity extends AppCompatActivity {
     private Button mButtonAnalyze;
     private EditText mFirstDate, mSecondDate;
     private String mSendCityName = null;
-
+    private boolean mPickedCity = false;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -88,6 +88,7 @@ public class MeteorologicalActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mButtonAnalyze.setText("Wykonaj analizę dla " + arrayList.get(position));
                 mSendCityName = arrayList.get(position);
+                mPickedCity = true;
             }
         });
         mButtonAnalyze.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +115,11 @@ public class MeteorologicalActivity extends AppCompatActivity {
 
         if (Integer.parseInt(mFirstDate.getText().toString()) > Integer.parseInt(mSecondDate.getText().toString())) {
             Toast.makeText(this, "Pierwsza data nie może być większa od drugiej", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (mPickedCity == false) {
+            Toast.makeText(this, "Proszę wybrać miasto", Toast.LENGTH_LONG).show();
             return false;
         }
 

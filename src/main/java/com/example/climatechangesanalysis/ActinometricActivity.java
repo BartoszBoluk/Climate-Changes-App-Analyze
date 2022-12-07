@@ -21,6 +21,7 @@ public class ActinometricActivity extends AppCompatActivity {
     private Button mButtonAnalyze;
     private EditText mFirstDate, mSecondDate;
     private String mSendCityName = null;
+    private boolean mPickedCity = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +68,9 @@ public class ActinometricActivity extends AppCompatActivity {
         mListView.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), arrayList.get(position), Toast.LENGTH_LONG).show();
                 mButtonAnalyze.setText("Wykonaj analizę dla " + arrayList.get(position));
                 mSendCityName = arrayList.get(position);
+                mPickedCity = true;
             }
         });
 
@@ -97,6 +98,11 @@ public class ActinometricActivity extends AppCompatActivity {
 
         if (Integer.parseInt(mFirstDate.getText().toString()) > Integer.parseInt(mSecondDate.getText().toString())) {
             Toast.makeText(this, "Pierwsza data nie może być większa od drugiej", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (mPickedCity == false) {
+            Toast.makeText(this, "Proszę wybrać miasto", Toast.LENGTH_LONG).show();
             return false;
         }
 

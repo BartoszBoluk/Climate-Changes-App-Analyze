@@ -23,6 +23,7 @@ public class HydroActivity extends AppCompatActivity {
     private Button mButtonAnalyze;
     private EditText mFirstDate, mSecondDate;
     private String mSendCityName = null;
+    private boolean mPickedCity = false;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -38,14 +39,31 @@ public class HydroActivity extends AppCompatActivity {
         final ArrayList<String> arrayList = new ArrayList<>();
 
         arrayList.add("Warszawa-Czajka");
-        arrayList.add("Cieszyn");
+        arrayList.add("Warszowice");
+        arrayList.add("Wisła Wielka");
+        arrayList.add("Goczałkowice-Zdrój");
+        arrayList.add("Wisła-Malinka");
+        arrayList.add("Szczyrk");
+        arrayList.add("Wadowice");
+        arrayList.add("Świdnik");
+        arrayList.add("Huta");
+        arrayList.add("Białka Tatrzańska");
+        arrayList.add("Pilzno");
+        arrayList.add("Sabótka");
+        arrayList.add("Kamienna Góra");
+        arrayList.add("Wałbrzych");
+        arrayList.add("Oława");
+        arrayList.add("Brzeg");
+        arrayList.add("Starogard Gdański");
+        arrayList.add("Wrocław-Stabłowice");
+        arrayList.add("Szczecin-Pogodno");
 
-        Collections.sort(arrayList, new Comparator<String>() {
-            @Override
-            public int compare(String s, String t1) {
-                return s.compareToIgnoreCase(t1);
-            }
-        });
+//        Collections.sort(arrayList, new Comparator<String>() {
+//            @Override
+//            public int compare(String s, String t1) {
+//                return s.compareToIgnoreCase(t1);
+//            }
+//        });
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayList);
         mListView.setAdapter(arrayAdapter);
@@ -54,6 +72,7 @@ public class HydroActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mButtonAnalyze.setText("Wykonaj analizę dla " + arrayList.get(position));
+                mPickedCity = true;
                 mSendCityName = arrayList.get(position);
             }
         });
@@ -80,7 +99,12 @@ public class HydroActivity extends AppCompatActivity {
         }
 
         if (Integer.parseInt(mFirstDate.getText().toString()) > Integer.parseInt(mSecondDate.getText().toString())) {
-            Toast.makeText(this, "Pierwsza data nie może być większa od drugiej", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Pierwsza data nie może być większa od drugiej", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (mPickedCity == false) {
+            Toast.makeText(this, "Proszę wybrać miasto", Toast.LENGTH_LONG).show();
             return false;
         }
 

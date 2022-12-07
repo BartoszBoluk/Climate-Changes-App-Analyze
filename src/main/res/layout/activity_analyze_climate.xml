@@ -507,8 +507,8 @@
 
     <TextView
         android:id="@+id/textViewFinalResultClimate"
-        android:layout_width="316dp"
-        android:layout_height="52dp"
+        android:layout_width="367dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="TextView"
         android:textAlignment="center"

@@ -5,6 +5,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.DownloadManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -27,6 +28,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
@@ -44,16 +46,21 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
             mHydroResultSecondDate7, mHydroResultSecondDate8, mHydroResultSecondDate9,
             mHydroResultSecondDate10, mHydroResultSecondDate11, mHydroResultSecondDate12;
 
-    private TextView mTextViewTitleHydro;
+    private TextView mTextViewTitleHydro, mTextViewFirstDate, mTextViewSecondDate, mTextViewFinalResult;
     private Button mButtonUnZipHydro;
     private String mCityName, mFirstYear, mSecondYear;
+    private static boolean noData;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analyze_hydro);
 
         mTextViewTitleHydro = findViewById(R.id.textViewTitleHydro);
+        mTextViewFirstDate = findViewById(R.id.HydroResultFirstDate);
+        mTextViewSecondDate = findViewById(R.id.HydroResultSecondDate);
+        mTextViewFinalResult = findViewById(R.id.textViewFinalResultHydro);
         mButtonUnZipHydro = findViewById(R.id.buttonUnZipHydro);
 
         mHydroResultFirstDate1 = findViewById(R.id.HydroResultFirstDate1);
@@ -87,6 +94,10 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
         mFirstYear = intent.getStringExtra("keyFirstDate");
         mSecondYear = intent.getStringExtra("keySecondDate");
         mCityName = intent.getStringExtra("keyCityName");
+
+        mTextViewTitleHydro.setText("Analiza dla punktu pomiarowego " + mCityName);
+        mTextViewFirstDate.setText(mFirstYear);
+        mTextViewSecondDate.setText(mSecondYear);
 
         // Uzyskiwanie permisji do dostępu do plików, by móc pobrać pliki
         int permissionCheck = ContextCompat.checkSelfPermission(this,
@@ -131,6 +142,8 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
+                    noData = false;
+//
                     // Wywoływanie funkcji getData, zapisywanie wyniku do zmiennej float.
                     float firstDate1 = getData(file1, mFirstYear, "01",
                             mHydroResultFirstDate1);
@@ -182,6 +195,36 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
                             mHydroResultSecondDate11);
                     float secondDate12 = getData(file2, mSecondYear, "12",
                             mHydroResultSecondDate12);
+
+                    // Obliczanie średnich temperatur rocznych, oraz różnicy,
+                    // następnie wyświetlanie wyniku w TextView
+                    float averageFirstDate = (firstDate1 + firstDate2 + firstDate3 + firstDate4 +
+                            firstDate5 + firstDate6 + firstDate7 + firstDate8 + firstDate9 +
+                            firstDate10 + firstDate11 + firstDate12) / 12;
+                    float averageSecondDate = (secondDate1 + secondDate2 + secondDate3 + secondDate4 +
+                            secondDate5 + secondDate6 + secondDate7 + secondDate8 + secondDate9 +
+                            secondDate10 + secondDate11 + secondDate12) / 12;
+                    float finalAverageScore = averageFirstDate - averageSecondDate;
+
+                    if (averageFirstDate > averageSecondDate) {
+                        if (noData == false) {
+                            mTextViewFinalResult.setText("Średnia roczna suma opadów zmalała o " +
+                                    new DecimalFormat("###.##").format(finalAverageScore) + " mm.");
+                        } else {
+                            mTextViewFinalResult.setText("Wynik Niepewny.\nŚrednia roczna suma opadów zmalała o " +
+                                    new DecimalFormat("###.##").format(finalAverageScore) + " mm.");
+                        }
+                    } else {
+                        finalAverageScore *= -1;
+
+                        if (noData == false) {
+                            mTextViewFinalResult.setText("Średnia roczna suma opadów zwiększyła się o " +
+                                    new DecimalFormat("###.##").format(finalAverageScore) + " mm.");
+                        } else {
+                            mTextViewFinalResult.setText("Wynik niepewny.\nŚrednia roczna suma opadów zwiększyła się o " +
+                                    new DecimalFormat("###.##").format(finalAverageScore) + " mm.");
+                        }
+                    }
                 }
             });
         }
@@ -192,62 +235,46 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
      * Funkcja sprawdza podaną nazwę miejscowości i zwraca jako Stringa odpowienie ID stacji.
      */
     public String returnStationCode(String cityName) {
-        String stationCode = null;
+        String stationCode = "";
 
         if (cityName.equals("Warszawa-Czajka")) {
             stationCode = "252200220";
-        } else if (cityName.equals("Cieszyn")) {
-            stationCode = "249180130";
-        } else if (cityName.equals("Brenna")) {
-            stationCode = "249180160";
-        } else if (cityName.equals("Wisła")) {
-            stationCode = "249180230";
-        } else if (cityName.equals("Maków Podhalański")) {
-            stationCode = "249190190";
-        } else if (cityName.equals("Tomaszów Bolesławiecki")) {
-            stationCode = "251150180";
-        } else if (cityName.equals("Tomaszów Lubelski")) {
-            stationCode = "250230070";
-        } else if (cityName.equals("Zgorzelec")) {
-            stationCode = "251150250";
-        } else if (cityName.equals("Katowice Pyrzowice")) {
-            stationCode = "250190530";
-        } else if (cityName.equals("Namysłów")) {
-            stationCode = "251150180";
-        } else if (cityName.equals("Jelcz-laskowice")) {
-            stationCode = "251170320";
-        } else if (cityName.equals("Puławy")) {
-            stationCode = "251210120";
-        } else if (cityName.equals("Gniezno")) {
-            stationCode = "252170110";
-        } else if (cityName.equals("Legionowo")) {
-            stationCode = "252200120";
-        } else if (cityName.equals("Gdańsk-Rębiechowo")) {
-            stationCode = "254180090";
-        } else if (cityName.equals("Grudziądz")) {
-            stationCode = "253180150";
-        } else if (cityName.equals("Bydgoszcz")) {
-            stationCode = "253180220";
-        } else if (cityName.equals("Gdynia")) {
-            stationCode = "254180060";
-        } else if (cityName.equals("Gorzyń")) {
-            stationCode = "252150120";
-        } else if (cityName.equals("Polkowice Dolne")) {
-            stationCode = "251160150";
-        } else if (cityName.equals("Jarocin")) {
-            stationCode = "250220120";
-        } else if (cityName.equals("Chorzelów")) {
-            stationCode = "251150180";
-        } else if (cityName.equals("Święty Krzyż")) {
-            stationCode = "250210050";
-        } else if (cityName.equals("Kraków-Obserwatorium")) {
-            stationCode = "250190390";
-        } else if (cityName.equals("Ząbkowice")) {
-            stationCode = "250190250";
-        } else if (cityName.equals("Warszawa-Bielany")) {
-            stationCode = "252200150";
-        } else if (cityName.equals("Warszawa-Obserwatorium")) {
-            stationCode = "252210160";
+        } else if (cityName.equals("Warszowice")) {
+            stationCode = "249180020";
+        } else if (cityName.equals("Wisła Wielka")) {
+            stationCode = "249180040";
+        } else if (cityName.equals("Goczałkowice-Zdrój")) {
+            stationCode = "249180050";
+        } else if (cityName.equals("Wisła-Malinka")) {
+            stationCode = "249180240";
+        } else if (cityName.equals("Szczyrk")) {
+            stationCode = "249180210";
+        } else if (cityName.equals("Wadowice")) {
+            stationCode = "249190080";
+        } else if (cityName.equals("Świdnik")) {
+            stationCode = "249200160";
+        } else if (cityName.equals("Huta")) {
+            stationCode = "249200350";
+        } else if (cityName.equals("Białka Tatrzańska")) {
+            stationCode = "249200450";
+        } else if (cityName.equals("Pilzno")) {
+            stationCode = "249210010";
+        } else if (cityName.equals("Sobótka")) {
+            stationCode = "250160060";
+        } else if (cityName.equals("Kamienna Góra")) {
+            stationCode = "250160150";
+        } else if (cityName.equals("Wałbrzych")) {
+            stationCode = "250160160";
+        } else if (cityName.equals("Oława")) {
+            stationCode = "250170030";
+        } else if (cityName.equals("Brzeg")) {
+            stationCode = "250170050";
+        } else if (cityName.equals("Starogard Gdańśki")) {
+            stationCode = "253180030";
+        } else if (cityName.equals("Wrocław-Stabłowice")) {
+            stationCode = "251160260";
+        } else if (cityName.equals("Szczecin-Pogodno")) {
+            stationCode = "253140210";
         }
 
         return stationCode;
@@ -277,6 +304,7 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
             URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/opad/1986_1990/1986_1990_m_o.zip";
         } else if (year >= 1991 && year <= 1995) {
             URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/opad/1991_1995/1991_1995_m_o.zip";
+
         } else if (year >= 1996 && year <= 2000) {
             URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/opad/1996_2000/1996_2000_m_o.zip";
         } else {
@@ -343,6 +371,8 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
                     }
                 }
 
+                System.out.println("TEST: " + dataList.size());
+
                 String stationCode = returnStationCode(mCityName);
 
                 for (int i = 0; i < dataList.size(); i++) {
@@ -362,6 +392,7 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
         if (textView.getText().equals(".")) {
             textView.setTextColor(Color.rgb(255, 0, 0));
             textView.setText("brak danych");
+            noData = true;
         }
 
         return average;
