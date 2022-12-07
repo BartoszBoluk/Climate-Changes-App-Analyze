@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">Climate Changes Analizator</string>
+    <string name="app_name">Analiza zmian klimatycznych</string>
+    <string name="textMeteorologicalChanges">Zmiany\nmeteorologiczne</string>
+    <string name="textActinometricChanges">Zmiany\naktynometryczne</string>
+    <string name="textHydrologicalChanges">Zmiany\nhydrologiczne</string>
+    <string name="textAboutProgram">O Programie</string>
+    <string name="infoAboutProgram"><b>Autor:</b> Bartosz Boluk\n\n<b>Wersja:</b> 1.0\n\n
+        <b>Cel Programu:</b>
+        celem programu jest analiza zmian klimatyczych w wybranych przez użytkownika obszarach w
+        polsce.\n\n
+        <b>Zmiany Klimatyczne</b> - pozwalają na analize zmian średniej temperatury rocznej w
+        wybranympunktcie pomiarowym w wybranych latach.\n\n
+        <b>Zmiany Hydrologiczne</b> -  pozwalają na analize zmian średniej rocznej ilości opadów
+        wybranym punktcie pomiarowym w wybranych latach.\n\n
+       <b>Zmiany Aktynometryczne</b> - pozwalają na analize zmian średniej rocznej wartości
+        usłonecznienia w wybranym punktcie pomiarowym w wybranych latach.</string>
+    <string name="textCity">Wybierz Miasto:</string>
+    <string name="textFirstYear">Podaj pierwszy rok\n (1990 - 2017)</string>
+    <string name="textSecondYear">Podaj drugi rok\n (1990 - 2017)</string>
+    <string name="textAnalyse">Wykonaj analize dla </string>
+    <string name="buttonHelp">Co oznacza wynik?</string>
+    <string name="textFirstYearClimate">Podaj pierwszy rok\n (1950 - 2020)</string>
+    <string name="textSecondYearClimate">Podaj drugi rok\n (1950 - 2020)</string>
+    <string name="emptyText">.</string>
 </resources>

@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AnalyzeHydroActivity">
+
+    <TextView
+        android:id="@+id/HydroResultSecondDate12"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/HydroResultFirstDate12"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultSecondDate11" />
+
+    <TextView
+        android:id="@+id/HydroResultSecondDate11"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/HydroResultFirstDate11"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultSecondDate10" />
+
+    <TextView
+        android:id="@+id/HydroResultSecondDate10"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/HydroResultFirstDate10"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultSecondDate9" />
+
+    <TextView
+        android:id="@+id/HydroResultSecondDate9"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/HydroResultFirstDate9"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultSecondDate8" />
+
+    <TextView
+        android:id="@+id/HydroResultSecondDate8"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/HydroResultFirstDate8"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultSecondDate7" />
+
+    <TextView
+        android:id="@+id/HydroResultSecondDate"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="Druga Data"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/month"
+        app:layout_constraintStart_toEndOf="@+id/HydroResultFirstDate"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitleHydro" />
+
+    <TextView
+        android:id="@+id/HydroResultSecondDate7"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/HydroResultFirstDate7"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultSecondDate6" />
+
+    <TextView
+        android:id="@+id/HydroResultSecondDate6"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/HydroResultFirstDate6"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultSecondDate5" />
+
+    <TextView
+        android:id="@+id/HydroResultSecondDate5"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/HydroResultFirstDate5"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultSecondDate4" />
+
+    <TextView
+        android:id="@+id/HydroResultSecondDate4"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/HydroResultFirstDate4"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultSecondDate3" />
+
+    <TextView
+        android:id="@+id/HydroResultSecondDate3"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/HydroResultFirstDate3"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultSecondDate2" />
+
+    <TextView
+        android:id="@+id/HydroResultSecondDate2"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/HydroResultFirstDate2"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultSecondDate1" />
+
+    <TextView
+        android:id="@+id/HydroResultSecondDate1"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/HydroResultFirstDate1"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultSecondDate" />
+
+    <TextView
+        android:id="@+id/monthHydro11"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Listopad"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/HydroResultFirstDate11"
+        app:layout_constraintTop_toBottomOf="@+id/monthHydro10" />
+
+    <TextView
+        android:id="@+id/monthHydro2"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Luty"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/HydroResultFirstDate2"
+        app:layout_constraintTop_toBottomOf="@+id/monthHydro1" />
+
+    <TextView
+        android:id="@+id/monthHydro7"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Lipiec"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/HydroResultFirstDate7"
+        app:layout_constraintTop_toBottomOf="@+id/monthHydro6" />
+
+    <TextView
+        android:id="@+id/monthHydro6"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Czerwiec"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/HydroResultFirstDate6"
+        app:layout_constraintTop_toBottomOf="@+id/monthHydro5" />
+
+    <TextView
+        android:id="@+id/monthHydro4"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Kwiecień"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/HydroResultFirstDate4"
+        app:layout_constraintTop_toBottomOf="@+id/monthHydro3" />
+
+    <TextView
+        android:id="@+id/monthHydro1"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Styczeń"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/HydroResultFirstDate1"
+        app:layout_constraintTop_toBottomOf="@+id/monthHydro" />
+
+    <TextView
+        android:id="@+id/monthHydro"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="Miesiąc"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/month"
+        app:layout_constraintEnd_toStartOf="@+id/HydroResultFirstDate"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitleHydro" />
+
+    <TextView
+        android:id="@+id/monthHydro5"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Maj"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/HydroResultFirstDate5"
+        app:layout_constraintTop_toBottomOf="@+id/monthHydro4" />
+
+    <TextView
+        android:id="@+id/monthHydro12"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Grudzień"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/HydroResultFirstDate12"
+        app:layout_constraintTop_toBottomOf="@+id/monthHydro11" />
+
+    <TextView
+        android:id="@+id/monthHydro10"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Październik"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/HydroResultFirstDate10"
+        app:layout_constraintTop_toBottomOf="@+id/monthHydro9" />
+
+    <TextView
+        android:id="@+id/monthHydro9"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Wrzesień"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/HydroResultFirstDate9"
+        app:layout_constraintTop_toBottomOf="@+id/monthHydro8" />
+
+    <TextView
+        android:id="@+id/monthHydro3"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Marzec"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/HydroResultFirstDate3"
+        app:layout_constraintTop_toBottomOf="@+id/monthHydro2" />
+
+    <TextView
+        android:id="@+id/monthHydro8"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Sierpień"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/HydroResultFirstDate8"
+        app:layout_constraintTop_toBottomOf="@+id/monthHydro7" />
+
+    <TextView
+        android:id="@+id/HydroResultFirstDate1"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultFirstDate" />
+
+    <TextView
+        android:id="@+id/HydroResultFirstDate2"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultFirstDate1" />
+
+    <TextView
+        android:id="@+id/HydroResultFirstDate12"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultFirstDate11" />
+
+    <TextView
+        android:id="@+id/HydroResultFirstDate11"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultFirstDate10" />
+
+    <TextView
+        android:id="@+id/HydroResultFirstDate10"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultFirstDate9" />
+
+    <TextView
+        android:id="@+id/HydroResultFirstDate"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="Pierwsza Data"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/month"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitleHydro" />
+
+    <TextView
+        android:id="@+id/HydroResultFirstDate9"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultFirstDate8"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/HydroResultFirstDate8"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultFirstDate7" />
+
+    <TextView
+        android:id="@+id/textViewFinalResultClimate2"
+        android:layout_width="316dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultFirstDate12" />
+
+    <TextView
+        android:id="@+id/HydroResultFirstDate7"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultFirstDate6" />
+
+    <TextView
+        android:id="@+id/HydroResultFirstDate6"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultFirstDate5" />
+
+    <TextView
+        android:id="@+id/HydroResultFirstDate5"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultFirstDate4" />
+
+    <TextView
+        android:id="@+id/HydroResultFirstDate4"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultFirstDate3" />
+
+    <TextView
+        android:id="@+id/HydroResultFirstDate3"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HydroResultFirstDate2" />
+
+    <TextView
+        android:id="@+id/textViewTitleHydro"
+        android:layout_width="277dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonUnZipHydro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFinalResultClimate2" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,17 +15,17 @@ import org.jsoup.nodes.Document;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 
 public class AnalyzeActivity extends AppCompatActivity {
 
+    // TextView poszczególnych miesięcy 1-12 dla pierwszej daty i drugiej daty, oraz TextView wyniku
     private TextView mResult;
-    private TextView mResultFirstDate, mResultFirstDate2, mResultFirstDate3, mResultFirstDate4, mResultFirstDate5,
-            mResultFirstDate6, mResultFirstDate7, mResultFirstDate8, mResultFirstDate9,
-            mResultFirstDate10, mResultFirstDate11, mResultFirstDate12;
-    private TextView mResultSecondDate, mResultSecondDate2, mResultSecondDate3, mResultSecondDate4, mResultSecondDate5,
-            mResultSecondDate6, mResultSecondDate7, mResultSecondDate8, mResultSecondDate9,
-            mResultSecondDate10, mResultSecondDate11, mResultSecondDate12;
+    private TextView mResultFirstDate, mResultFirstDate2, mResultFirstDate3, mResultFirstDate4,
+            mResultFirstDate5, mResultFirstDate6, mResultFirstDate7, mResultFirstDate8,
+            mResultFirstDate9, mResultFirstDate10, mResultFirstDate11, mResultFirstDate12;
+    private TextView mResultSecondDate, mResultSecondDate2, mResultSecondDate3, mResultSecondDate4,
+            mResultSecondDate5, mResultSecondDate6, mResultSecondDate7, mResultSecondDate8,
+            mResultSecondDate9, mResultSecondDate10, mResultSecondDate11, mResultSecondDate12;
     private String mFirstDate, mSecondDate, mCityName;
     public static boolean noData = false;
 
@@ -38,7 +38,7 @@ public class AnalyzeActivity extends AppCompatActivity {
 
         TextView mTextViewFirstDate, mTextViewSecondDate, mTextView;
 
-        // TextView poszczególnych miesięcy 1-12 dla pierwszej daty
+        // Inicjalizacja TextView poszczególnych miesięcy 1-12 dla pierwszej daty
         mTextView = findViewById(R.id.textView);
         mResultFirstDate = findViewById(R.id.resultFirstDate);
         mResultFirstDate2 = findViewById(R.id.resultFirstDate2);
@@ -53,7 +53,7 @@ public class AnalyzeActivity extends AppCompatActivity {
         mResultFirstDate11 = findViewById(R.id.resultFirstDate11);
         mResultFirstDate12 = findViewById(R.id.resultFirstDate12);
 
-        // TextView poszczególnych miesięcy 1-12 dla drugiej daty
+        // Inicjalizacja TextView poszczególnych miesięcy 1-12 dla drugiej daty
         mResultSecondDate = findViewById(R.id.resultSecondDate);
         mResultSecondDate2 = findViewById(R.id.resultSecondDate2);
         mResultSecondDate3 = findViewById(R.id.resultSecondDate3);
@@ -69,12 +69,13 @@ public class AnalyzeActivity extends AppCompatActivity {
 
         mResult = findViewById(R.id.result);
 
+        // Pobieraie nazwy miasta i dat z poprzedniego activity
         Intent intent = getIntent();
         mCityName = intent.getStringExtra("keyCityName");
         mFirstDate = intent.getStringExtra("keyFirstDate");
         mSecondDate = intent.getStringExtra("keySecondDate");
 
-        //TextView dat (Kolumny) i tytół activity
+        //TextView dat (Kolumny) i tytuł activity
         mTextView.setText("Analiza dla miasta " + mCityName);
         mTextViewFirstDate = findViewById(R.id.textViewFirstDate);
         mTextViewSecondDate = findViewById(R.id.textViewSecondDate);
@@ -88,8 +89,6 @@ public class AnalyzeActivity extends AppCompatActivity {
 
     class Content extends AsyncTask<Void, Void, Void> {
 
-        ArrayList<String> ls = new ArrayList<>();
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -101,8 +100,8 @@ public class AnalyzeActivity extends AppCompatActivity {
             String URL_FirstDate, URL_FirstDate2, URL_FirstDate3, URL_FirstDate4, URL_FirstDate5,
                     URL_FirstDate6, URL_FirstDate7, URL_FirstDate8, URL_FirstDate9, URL_FirstDate10,
                     URL_FirstDate11, URL_FirstDate12;
-            String URL_SecondDate, URL_SecondDate2, URL_SecondDate3,
-                    URL_SecondDate4, URL_SecondDate5, URL_SecondDate6, URL_SecondDate7, URL_SecondDate8,
+            String URL_SecondDate, URL_SecondDate2, URL_SecondDate3, URL_SecondDate4,
+                    URL_SecondDate5, URL_SecondDate6, URL_SecondDate7, URL_SecondDate8,
                     URL_SecondDate9, URL_SecondDate10, URL_SecondDate11, URL_SecondDate12;
             String mZweryfikowany, mFileName, mYear1, mYear2;
             String link_w = "";
@@ -110,6 +109,9 @@ public class AnalyzeActivity extends AppCompatActivity {
             org.jsoup.nodes.Document document = null;
             noData = false;
 
+
+            // Sprawdzanie jaka została wybrana data przez użytkownika. Następnie przypisywanie
+            // dwóch ostatnich cyfr pod zmienną mYear.
             if (mFirstDate.equals("1990")) {
                 mYear1 = "90";
             } else if (mFirstDate.equals("1991")) {
@@ -168,6 +170,8 @@ public class AnalyzeActivity extends AppCompatActivity {
                 mYear1 = "00";
             }
 
+            // Sprawdzanie jaka została wybrana data przez użytkownika. Następnie przypisywanie
+            // dwóch ostatnich cyfr pod zmienną mYear.
             if (mSecondDate.equals("1990")) {
                 mYear2 = "90";
             } else if (mSecondDate.equals("1991")) {
@@ -228,6 +232,8 @@ public class AnalyzeActivity extends AppCompatActivity {
                 mYear2 = "00";
             }
 
+            // Sprawdzanie nazwy mista i przypisywanie skrótu tego miasta,
+            // oraz modyfikacja linku (Zweryfikowane, lub zweryfikowane).
             if (mCityName.equals("Łódź")) {
                 mFileName = "LDZ";
                 mZweryfikowany = "Zweryfikowane";
@@ -332,24 +338,27 @@ public class AnalyzeActivity extends AppCompatActivity {
             float secondDate11 = getData(URL_SecondDate11, document, mResultSecondDate11);
             float secondDate12 = getData(URL_SecondDate12, document, mResultSecondDate12);
 
-            System.out.println("TEST: " + noData);
-
-
-            float finaResultFirstDate = firstDate1 + firstDate2 + firstDate3 + firstDate4 + firstDate5 +
-                    firstDate6 + firstDate7 + firstDate8 + firstDate9 + firstDate10 + firstDate11 + firstDate12;
-            float finalResultSecondDate = secondDate1 + secondDate2 + secondDate3 + secondDate4 + secondDate5 + secondDate6
-                    + secondDate7 + secondDate8 + secondDate9 + secondDate10 + secondDate11 + secondDate12;
+            float finaResultFirstDate = firstDate1 + firstDate2 + firstDate3 + firstDate4 +
+                    firstDate5 + firstDate6 + firstDate7 + firstDate8 + firstDate9 + firstDate10 +
+                    firstDate11 + firstDate12;
+            float finalResultSecondDate = secondDate1 + secondDate2 + secondDate3 + secondDate4 +
+                    secondDate5 + secondDate6 + secondDate7 + secondDate8 + secondDate9 +
+                    secondDate10 + secondDate11 + secondDate12;
             float finalResult;
 
+            // Modyfikacja TextView w zależności od otrzymanego wyniku
             if (finaResultFirstDate > finalResultSecondDate) {
                 finalResult = 100 - ((finalResultSecondDate * 100) / finaResultFirstDate);
 
                 if (noData == true) {
-                    mResult.setText("Wynik niepewny.\nWartość rocznej uśrednionej wartości całkowitego promieniowania " +
-                            "zmniejszyła się o " + new DecimalFormat("###.##").format(finalResult) + " %.");
+                    mResult.setText("Wynik niepewny.\nWartość rocznej uśrednionej wartości " +
+                            "całkowitego promieniowania " +
+                            "zmniejszyła się o " + new DecimalFormat("###.##").
+                            format(finalResult) + " %.");
                 } else {
-                    mResult.setText("Wartość rocznej uśrednionej wartości całkowitego promieniowania " +
-                            "zmniejszyła się o " + new DecimalFormat("###.##").format(finalResult) + " %.");
+                    mResult.setText("Wartość rocznej uśrednionej wartości całkowitego " +
+                            "promieniowania zmniejszyła się o " + new DecimalFormat("###.##").
+                            format(finalResult) + " %.");
                 }
 
             } else {
@@ -363,7 +372,6 @@ public class AnalyzeActivity extends AppCompatActivity {
                             "zwiększyła się o " + new DecimalFormat("###.##").format(finalResult) + " %.");
                 }
             }
-
 
             return null;
         }
@@ -434,10 +442,8 @@ public class AnalyzeActivity extends AppCompatActivity {
                             splitStr[i].equals("integratorCM12-890154") ||
                             splitStr[i].equals("IntegratorCM12-890154") || splitStr[i].equals("7957080") ||
                             splitStr[i].equals("DR03\\72") || splitStr[i].equals("CM-890154")) {
-                        //if ((splitStr[i].equals("21") && splitStr[i + 1].equals("1")) || (splitStr[i].equals("21") && splitStr[i + 1].equals("01"))) {
                         for (int j = 0; j < 28; j++) {
                             averageData += Integer.parseInt(splitStr[i + 1 + twelveHour + j * day_counter]);
-                            //System.out.println("TEST: " + averageData);
                         }
                         break;
                     }
@@ -460,7 +466,8 @@ public class AnalyzeActivity extends AppCompatActivity {
     /*
      * Funckja tworzy link URL do strony.
      */
-    public String makeURL(String cityName, String zweryfikowany, String date, String shortCityName, String month, String shortYear, String link_w) {
+    public String makeURL(String cityName, String zweryfikowany, String date, String shortCityName,
+                          String month, String shortYear, String link_w) {
 
         String link_dan = ".DAN";
 
@@ -566,7 +573,8 @@ public class AnalyzeActivity extends AppCompatActivity {
                 link_dan = ".dan";
             }
 
-            if (Integer.parseInt(date) == 2009 && (month == "03" || month == "06" || month == "08" || month == "10" || month == "12")) {
+            if (Integer.parseInt(date) == 2009 && (month == "03" || month == "06" || month == "08" ||
+                    month == "10" || month == "12")) {
                 shortCityName = "Jeg";
             } else if (Integer.parseInt(date) == 2009 && month == "11") {
                 shortCityName = "jEG";
@@ -718,7 +726,6 @@ public class AnalyzeActivity extends AppCompatActivity {
                 link_dan = ".dan";
             }
         }
-
 
         String URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_aktynometryczne/" +
                 cityName + "/" + zweryfikowany + "/" + date + "/" + shortCityName + month + "-" + shortYear + link_w + link_dan;

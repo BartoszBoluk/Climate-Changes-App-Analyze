@@ -27,7 +27,7 @@ public class ActinometricActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actinometric);
 
-        mListView = findViewById(R.id.listView);
+        mListView = findViewById(R.id.listViewClimate);
         mButtonAnalyze = findViewById(R.id.buttonAnalyse);
 
         mFirstDate = findViewById(R.id.editTextFirstYear);

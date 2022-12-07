@@ -8,336 +8,338 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="305dp"
-        android:layout_height="57dp"
+        android:layout_width="313dp"
+        android:layout_height="35dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:text="TextView"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/resultSecondDate"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/resultFirstDate"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/resultSecondDate2"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/resultFirstDate2"
         app:layout_constraintTop_toBottomOf="@+id/resultSecondDate" />
 
     <TextView
         android:id="@+id/resultSecondDate3"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/resultFirstDate3"
         app:layout_constraintTop_toBottomOf="@+id/resultSecondDate2" />
 
     <TextView
         android:id="@+id/resultSecondDate4"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/resultFirstDate4"
         app:layout_constraintTop_toBottomOf="@+id/resultSecondDate3" />
 
     <TextView
         android:id="@+id/resultSecondDate5"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/resultFirstDate5"
         app:layout_constraintTop_toBottomOf="@+id/resultSecondDate4" />
 
     <TextView
         android:id="@+id/resultSecondDate6"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/resultFirstDate6"
         app:layout_constraintTop_toBottomOf="@+id/resultSecondDate5" />
 
     <TextView
         android:id="@+id/resultSecondDate7"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/resultFirstDate7"
         app:layout_constraintTop_toBottomOf="@+id/resultSecondDate6" />
 
     <TextView
         android:id="@+id/resultSecondDate8"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/resultFirstDate8"
         app:layout_constraintTop_toBottomOf="@+id/resultSecondDate7" />
 
     <TextView
         android:id="@+id/resultSecondDate9"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/resultFirstDate9"
         app:layout_constraintTop_toBottomOf="@+id/resultSecondDate8" />
 
     <TextView
         android:id="@+id/resultSecondDate10"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/resultFirstDate10"
         app:layout_constraintTop_toBottomOf="@+id/resultSecondDate9" />
 
     <TextView
         android:id="@+id/resultSecondDate11"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/resultFirstDate11"
         app:layout_constraintTop_toBottomOf="@+id/resultSecondDate10" />
 
     <TextView
         android:id="@+id/resultSecondDate12"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/resultFirstDate12"
         app:layout_constraintTop_toBottomOf="@+id/resultSecondDate11" />
 
     <TextView
         android:id="@+id/resultFirstDate"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="120dp"
         android:layout_marginTop="48dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textViewFirstDate"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="120dp"
         android:layout_marginBottom="8dp"
         android:text="TextView"
         android:textAlignment="center"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/resultFirstDate"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewSecondDate"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginBottom="8dp"
         android:text="TextView"
         android:textAlignment="center"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/resultFirstDate"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/textViewFirstDate" />
 
     <TextView
         android:id="@+id/resultFirstDate2"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="120dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultFirstDate" />
 
     <TextView
         android:id="@+id/resultFirstDate3"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="120dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultFirstDate2" />
 
     <TextView
         android:id="@+id/resultFirstDate4"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="120dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultFirstDate3" />
 
     <TextView
         android:id="@+id/resultFirstDate5"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="120dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultFirstDate4" />
 
     <TextView
         android:id="@+id/resultFirstDate6"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="120dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultFirstDate5" />
 
     <TextView
         android:id="@+id/resultFirstDate7"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="120dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultFirstDate6" />
 
     <TextView
         android:id="@+id/resultFirstDate8"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="120dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultFirstDate7" />
 
     <TextView
         android:id="@+id/resultFirstDate9"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="120dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultFirstDate8" />
 
     <TextView
         android:id="@+id/resultFirstDate10"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="120dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultFirstDate9" />
 
     <TextView
         android:id="@+id/resultFirstDate11"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="120dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultFirstDate10" />
 
     <TextView
         android:id="@+id/resultFirstDate12"
-        android:layout_width="150dp"
+        android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="120dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultFirstDate11" />
 
     <TextView
         android:id="@+id/result"
-        android:layout_width="366dp"
-        android:layout_height="101dp"
+        android:layout_width="310dp"
+        android:layout_height="157dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -349,166 +351,157 @@
         android:id="@+id/month"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="48dp"
+        android:layout_marginRight="16dp"
         android:text="Styczeń"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resultFirstDate"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/month13"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
         android:text="Miesiąc"
         android:textAlignment="center"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/month"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/textViewFirstDate" />
 
     <TextView
         android:id="@+id/month2"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
         android:text="Luty"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resultFirstDate2"
         app:layout_constraintTop_toBottomOf="@+id/month" />
 
     <TextView
         android:id="@+id/month3"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
         android:text="Marzec"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resultFirstDate3"
         app:layout_constraintTop_toBottomOf="@+id/month2" />
 
     <TextView
         android:id="@+id/month4"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
         android:text="Kwiecień"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resultFirstDate4"
         app:layout_constraintTop_toBottomOf="@+id/month3" />
 
     <TextView
         android:id="@+id/month5"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
         android:text="Maj"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resultFirstDate5"
         app:layout_constraintTop_toBottomOf="@+id/month4" />
 
     <TextView
         android:id="@+id/month6"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
         android:text="Czerwiec"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resultFirstDate6"
         app:layout_constraintTop_toBottomOf="@+id/month5" />
 
     <TextView
         android:id="@+id/month7"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
         android:text="Lipiec"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resultFirstDate7"
         app:layout_constraintTop_toBottomOf="@+id/month6" />
 
     <TextView
         android:id="@+id/month8"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
         android:text="Sierpień"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resultFirstDate8"
         app:layout_constraintTop_toBottomOf="@+id/month7" />
 
     <TextView
         android:id="@+id/month9"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
         android:text="Wrzesień"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resultFirstDate9"
         app:layout_constraintTop_toBottomOf="@+id/month8" />
 
     <TextView
         android:id="@+id/month10"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:text="Październik"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/month9" />
+        app:layout_constraintEnd_toStartOf="@+id/resultFirstDate10"
+        app:layout_constraintTop_toBottomOf="@+id/month9"
+        android:layout_marginRight="16dp" />
 
     <TextView
         android:id="@+id/month11"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
         android:text="Listopad"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resultFirstDate11"
         app:layout_constraintTop_toBottomOf="@+id/month10" />
 
     <TextView
         android:id="@+id/month12"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
         android:text="Grudzień"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resultFirstDate12"
         app:layout_constraintTop_toBottomOf="@+id/month11" />
-
-    <Button
-        android:id="@+id/buttonHelp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/buttonHelp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/result" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

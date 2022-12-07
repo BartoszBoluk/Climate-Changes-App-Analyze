@@ -1,5 +1,6 @@
 package com.example.climatechangesanalysis;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,8 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button mButtonAbout, mButtonMeteo, mButtonAcro;
+    private Button mButtonAbout, mButtonMeteo, mButtonAcro, mButtonHydro;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         mButtonAbout = findViewById(R.id.buttonAbout);
         mButtonMeteo = findViewById(R.id.buttonMeteo);
         mButtonAcro = findViewById(R.id.buttonAcro);
+        mButtonHydro = findViewById(R.id.buttonHydro);
 
         mButtonAbout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(view, ActinometricActivity.class);
             }
         });
+
+        mButtonHydro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(view, HydroActivity.class);
+            }
+        });
+
 
     }
 

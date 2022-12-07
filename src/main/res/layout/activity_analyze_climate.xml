@@ -7,16 +7,176 @@
     tools:context=".AnalyzeClimateActivity">
 
     <TextView
+        android:id="@+id/monthClimate22"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="Druga Data"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/month"
+        app:layout_constraintStart_toEndOf="@+id/monthClimate21"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/climateResultSecondDate1"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/climateResultFirstDate1"
+        app:layout_constraintTop_toBottomOf="@+id/monthClimate21" />
+
+    <TextView
+        android:id="@+id/climateResultSecondDate2"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/climateResultFirstDate2"
+        app:layout_constraintTop_toBottomOf="@+id/monthClimate1" />
+
+    <TextView
+        android:id="@+id/climateResultSecondDate10"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/climateResultFirstDate10"
+        app:layout_constraintTop_toBottomOf="@+id/monthClimate9" />
+
+    <TextView
+        android:id="@+id/climateResultSecondDate5"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/climateResultFirstDate5"
+        app:layout_constraintTop_toBottomOf="@+id/monthClimate4" />
+
+    <TextView
+        android:id="@+id/climateResultSecondDate7"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/climateResultFirstDate7"
+        app:layout_constraintTop_toBottomOf="@+id/monthClimate6" />
+
+    <TextView
+        android:id="@+id/climateResultSecondDate12"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/climateResultFirstDate12"
+        app:layout_constraintTop_toBottomOf="@+id/monthClimate11" />
+
+    <TextView
+        android:id="@+id/climateResultSecondDate11"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/climateResultFirstDate11"
+        app:layout_constraintTop_toBottomOf="@+id/monthClimate10" />
+
+    <TextView
+        android:id="@+id/climateResultSecondDate6"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/climateResultFirstDate6"
+        app:layout_constraintTop_toBottomOf="@+id/monthClimate5" />
+
+    <TextView
+        android:id="@+id/climateResultSecondDate3"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/climateResultFirstDate3"
+        app:layout_constraintTop_toBottomOf="@+id/monthClimate2" />
+
+    <TextView
+        android:id="@+id/climateResultSecondDate9"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/climateResultFirstDate9"
+        app:layout_constraintTop_toBottomOf="@+id/monthClimate8" />
+
+    <TextView
+        android:id="@+id/climateResultSecondDate4"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/climateResultFirstDate4"
+        app:layout_constraintTop_toBottomOf="@+id/monthClimate3" />
+
+    <TextView
+        android:id="@+id/climateResultSecondDate8"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/emptyText"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/climateResultFirstDate8"
+        app:layout_constraintTop_toBottomOf="@+id/monthClimate7" />
+
+    <TextView
         android:id="@+id/monthClimate21"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         android:text="Pierwsza Data"
         android:textAlignment="center"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/month"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -24,11 +184,11 @@
         android:id="@+id/climateResultFirstDate1"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="160dp"
         android:layout_marginTop="8dp"
-        android:text="."
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate21" />
 
@@ -36,11 +196,11 @@
         android:id="@+id/climateResultFirstDate2"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="160dp"
         android:layout_marginTop="8dp"
-        android:text="."
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate1" />
 
@@ -48,11 +208,11 @@
         android:id="@+id/climateResultFirstDate8"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="160dp"
         android:layout_marginTop="8dp"
-        android:text="."
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate7" />
 
@@ -60,11 +220,11 @@
         android:id="@+id/climateResultFirstDate4"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="160dp"
         android:layout_marginTop="8dp"
-        android:text="."
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate3" />
 
@@ -72,11 +232,11 @@
         android:id="@+id/climateResultFirstDate3"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="160dp"
         android:layout_marginTop="8dp"
-        android:text="."
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate2" />
 
@@ -84,11 +244,11 @@
         android:id="@+id/climateResultFirstDate11"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="160dp"
         android:layout_marginTop="8dp"
-        android:text="."
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate10" />
 
@@ -96,11 +256,11 @@
         android:id="@+id/climateResultFirstDate9"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="160dp"
         android:layout_marginTop="8dp"
-        android:text="."
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate8" />
 
@@ -108,11 +268,11 @@
         android:id="@+id/climateResultFirstDate6"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="160dp"
         android:layout_marginTop="8dp"
-        android:text="."
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate5" />
 
@@ -120,11 +280,11 @@
         android:id="@+id/climateResultFirstDate7"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="160dp"
         android:layout_marginTop="8dp"
-        android:text="."
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate6" />
 
@@ -132,11 +292,11 @@
         android:id="@+id/climateResultFirstDate5"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="160dp"
         android:layout_marginTop="8dp"
-        android:text="."
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate4" />
 
@@ -144,11 +304,11 @@
         android:id="@+id/climateResultFirstDate10"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="160dp"
         android:layout_marginTop="8dp"
-        android:text="."
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate9" />
 
@@ -156,11 +316,11 @@
         android:id="@+id/climateResultFirstDate12"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="160dp"
         android:layout_marginTop="8dp"
-        android:text="."
+        android:text="@string/emptyText"
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate11" />
 
@@ -168,166 +328,169 @@
         android:id="@+id/monthClimate1"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="Styczeń"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/climateResultFirstDate1"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate0" />
 
     <TextView
         android:id="@+id/monthClimate3"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="Marzec"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/climateResultFirstDate3"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate2" />
 
     <TextView
         android:id="@+id/monthClimate2"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="Luty"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/climateResultFirstDate2"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate1" />
 
     <TextView
         android:id="@+id/monthClimate10"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="Październik"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/climateResultFirstDate10"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate9" />
 
     <TextView
         android:id="@+id/monthClimate12"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="Grudzień"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/climateResultFirstDate12"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate11" />
 
     <TextView
         android:id="@+id/monthClimate11"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="Listopad"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/climateResultFirstDate11"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate10" />
 
     <TextView
         android:id="@+id/monthClimate8"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="Sierpień"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/climateResultFirstDate8"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate7" />
 
     <TextView
         android:id="@+id/monthClimate0"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:text="Miesiąc"
         android:textAlignment="center"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/month"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/monthClimate21"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/monthClimate4"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="Kwiecień"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/climateResultFirstDate4"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate3" />
 
     <TextView
         android:id="@+id/monthClimate7"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="Lipiec"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/climateResultFirstDate7"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate6" />
 
     <TextView
         android:id="@+id/monthClimate5"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="Maj"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/climateResultFirstDate5"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate4" />
 
     <TextView
         android:id="@+id/monthClimate6"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="Czerwiec"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/climateResultFirstDate6"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate5" />
 
     <TextView
         android:id="@+id/monthClimate9"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="Wrzesień"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/climateResultFirstDate9"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate8" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="311dp"
+        android:layout_height="49dp"
         android:layout_marginTop="32dp"
         android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -336,7 +499,7 @@
         android:id="@+id/buttonStartAnalyze"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:text="Start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -344,10 +507,12 @@
 
     <TextView
         android:id="@+id/textViewFinalResultClimate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_width="316dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
         android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monthClimate12" />

@@ -14,7 +14,7 @@
         android:layout_marginEnd="24dp"
         android:text="@string/textSecondYearClimate"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listView" />
+        app:layout_constraintTop_toBottomOf="@+id/listViewClimate" />
 
     <Button
         android:id="@+id/buttonAnalyse4"
@@ -60,10 +60,10 @@
         android:layout_marginTop="32dp"
         android:text="@string/textFirstYearClimate"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listView" />
+        app:layout_constraintTop_toBottomOf="@+id/listViewClimate" />
 
     <TextView
-        android:id="@+id/textCity4"
+        android:id="@+id/textCityClimate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -74,12 +74,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/listView"
+        android:id="@+id/listViewClimate"
         android:layout_width="314dp"
         android:layout_height="205dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textCity4" />
+        app:layout_constraintTop_toBottomOf="@+id/textCityClimate" />
 </androidx.constraintlayout.widget.ConstraintLayout>

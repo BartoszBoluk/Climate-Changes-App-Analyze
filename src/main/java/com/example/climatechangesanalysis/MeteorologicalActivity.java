@@ -2,6 +2,7 @@ package com.example.climatechangesanalysis;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class MeteorologicalActivity extends AppCompatActivity {
 
@@ -22,12 +25,13 @@ public class MeteorologicalActivity extends AppCompatActivity {
     private String mSendCityName = null;
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meteorological2);
 
-        mListView = findViewById(R.id.listView);
+        mListView = findViewById(R.id.listViewClimate);
         mButtonAnalyze = findViewById(R.id.buttonAnalyse4);
 
         mFirstDate = findViewById(R.id.editTextFirstYear4);
@@ -35,11 +39,46 @@ public class MeteorologicalActivity extends AppCompatActivity {
 
         final ArrayList<String> arrayList = new ArrayList<>();
 
-        arrayList.add("Łódź");
-        arrayList.add("Warszawa");
-        arrayList.add("Śnieżka");
-        arrayList.add("Bielsko-Biała");
+        arrayList.add("Pszczyna");
+        arrayList.add("Cieszyn");
+        arrayList.add("Brenna");
+        arrayList.add("Wisła");
+        //arrayList.add("Istebna-kubalonka");
+        //arrayList.add("Inwałd");
+        arrayList.add("Maków Podhalański");
+        //arrayList.add("Luboń Wielki");
+        arrayList.add("Tomaszów Bolesławiecki");
+        arrayList.add("Tomaszów Lubelski");
+        arrayList.add("Zgorzelec");
+        arrayList.add("Katowice Pyrzowice");
+        arrayList.add("Namysłów");
+        arrayList.add("Jelcz-laskowice");
+        arrayList.add("Puławy");
+        arrayList.add("Gniezno");
+        arrayList.add("Legionowo");
+        arrayList.add("Gdańsk-Rębiechowo");
+        //arrayList.add("GDAŃSK-ŚWIBNO");
+        arrayList.add("Warszawa-Bielany");
+        arrayList.add("Warszawa-Obserwatorium");
+        //arrayList.add("Warszawa-Obserwatorium II");
+        arrayList.add("Grudziądz");
+        arrayList.add("Bydgoszcz");
         arrayList.add("Gdynia");
+        //arrayList.add("Pułtusk");
+        arrayList.add("Gorzyń");
+        arrayList.add("Polkowice Dolne");
+        arrayList.add("Jarocin");
+        arrayList.add("Chorzelów");
+        arrayList.add("Święty Krzyż");
+        arrayList.add("Kraków-Obserwatorium");
+        arrayList.add("Ząbkowice");
+
+        Collections.sort(arrayList, new Comparator<String>() {
+            @Override
+            public int compare(String s, String t1) {
+                return s.compareToIgnoreCase(t1);
+            }
+        });
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayList);
         mListView.setAdapter(arrayAdapter);
@@ -47,7 +86,6 @@ public class MeteorologicalActivity extends AppCompatActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), arrayList.get(position), Toast.LENGTH_LONG).show();
                 mButtonAnalyze.setText("Wykonaj analizę dla " + arrayList.get(position));
                 mSendCityName = arrayList.get(position);
             }

@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/listView"
+        android:id="@+id/listViewClimate"
         android:layout_width="314dp"
         android:layout_height="205dp"
         android:layout_marginTop="16dp"
@@ -35,7 +35,7 @@
         android:layout_marginTop="32dp"
         android:text="@string/textFirstYear"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listView" />
+        app:layout_constraintTop_toBottomOf="@+id/listViewClimate" />
 
     <TextView
         android:id="@+id/textSecondYear"
@@ -45,7 +45,7 @@
         android:layout_marginEnd="24dp"
         android:text="@string/textSecondYear"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listView" />
+        app:layout_constraintTop_toBottomOf="@+id/listViewClimate" />
 
     <EditText
         android:id="@+id/editTextFirstYear"

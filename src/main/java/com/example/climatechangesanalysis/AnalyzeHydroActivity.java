@@ -27,77 +27,66 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-public class AnalyzeClimateActivity extends AppCompatActivity {
+public class AnalyzeHydroActivity extends AppCompatActivity {
 
     // TextView poszczególnych miesięcy 1-12 dla pierwszej i drugiej daty
-    private TextView mClimateResultFirstDate1, mClimateResultFirstDate2, mClimateResultFirstDate3,
-            mClimateResultFirstDate4, mClimateResultFirstDate5, mClimateResultFirstDate6,
-            mClimateResultFirstDate7, mClimateResultFirstDate8, mClimateResultFirstDate9,
-            mClimateResultFirstDate10, mClimateResultFirstDate11, mClimateResultFirstDate12,
-            mFinalResultTextView, mClimateResultSecondDate1, mClimateResultSecondDate2,
-            mClimateResultSecondDate3, mClimateResultSecondDate4, mClimateResultSecondDate5,
-            mClimateResultSecondDate6, mClimateResultSecondDate7, mClimateResultSecondDate8,
-            mClimateResultSecondDate9, mClimateResultSecondDate10, mClimateResultSecondDate11,
-            mClimateResultSecondDate12;
+    private TextView mHydroResultFirstDate1, mHydroResultFirstDate2, mHydroResultFirstDate3,
+            mHydroResultFirstDate4, mHydroResultFirstDate5, mHydroResultFirstDate6,
+            mHydroResultFirstDate7, mHydroResultFirstDate8, mHydroResultFirstDate9,
+            mHydroResultFirstDate10, mHydroResultFirstDate11, mHydroResultFirstDate12,
+            mHydroResultSecondDate1, mHydroResultSecondDate2, mHydroResultSecondDate3,
+            mHydroResultSecondDate4, mHydroResultSecondDate5, mHydroResultSecondDate6,
+            mHydroResultSecondDate7, mHydroResultSecondDate8, mHydroResultSecondDate9,
+            mHydroResultSecondDate10, mHydroResultSecondDate11, mHydroResultSecondDate12;
+
+    private TextView mTextViewTitleHydro;
+    private Button mButtonUnZipHydro;
     private String mCityName, mFirstYear, mSecondYear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_analyze_climate);
+        setContentView(R.layout.activity_analyze_hydro);
 
-        TextView infoTextView, firstDateTextView, secondDateTextView;
-        Button buttonStart;
+        mTextViewTitleHydro = findViewById(R.id.textViewTitleHydro);
+        mButtonUnZipHydro = findViewById(R.id.buttonUnZipHydro);
 
-        infoTextView = findViewById(R.id.textView2);
-        firstDateTextView = findViewById(R.id.monthClimate21);
-        secondDateTextView = findViewById(R.id.monthClimate22);
-        buttonStart = findViewById(R.id.buttonStartAnalyze);
-        mFinalResultTextView = findViewById(R.id.textViewFinalResultClimate);
+        mHydroResultFirstDate1 = findViewById(R.id.HydroResultFirstDate1);
+        mHydroResultFirstDate2 = findViewById(R.id.HydroResultFirstDate2);
+        mHydroResultFirstDate3 = findViewById(R.id.HydroResultFirstDate3);
+        mHydroResultFirstDate4 = findViewById(R.id.HydroResultFirstDate4);
+        mHydroResultFirstDate5 = findViewById(R.id.HydroResultFirstDate5);
+        mHydroResultFirstDate6 = findViewById(R.id.HydroResultFirstDate6);
+        mHydroResultFirstDate7 = findViewById(R.id.HydroResultFirstDate7);
+        mHydroResultFirstDate8 = findViewById(R.id.HydroResultFirstDate8);
+        mHydroResultFirstDate9 = findViewById(R.id.HydroResultFirstDate9);
+        mHydroResultFirstDate10 = findViewById(R.id.HydroResultFirstDate10);
+        mHydroResultFirstDate11 = findViewById(R.id.HydroResultFirstDate11);
+        mHydroResultFirstDate12 = findViewById(R.id.HydroResultFirstDate12);
 
-        // Inicjalizacja TextView poszczególnych miesięcy 1-12 dla pierwszej daty
-        mClimateResultFirstDate1 = findViewById(R.id.climateResultFirstDate1);
-        mClimateResultFirstDate2 = findViewById(R.id.climateResultFirstDate2);
-        mClimateResultFirstDate3 = findViewById(R.id.climateResultFirstDate3);
-        mClimateResultFirstDate4 = findViewById(R.id.climateResultFirstDate4);
-        mClimateResultFirstDate5 = findViewById(R.id.climateResultFirstDate5);
-        mClimateResultFirstDate6 = findViewById(R.id.climateResultFirstDate6);
-        mClimateResultFirstDate7 = findViewById(R.id.climateResultFirstDate7);
-        mClimateResultFirstDate8 = findViewById(R.id.climateResultFirstDate8);
-        mClimateResultFirstDate9 = findViewById(R.id.climateResultFirstDate9);
-        mClimateResultFirstDate10 = findViewById(R.id.climateResultFirstDate10);
-        mClimateResultFirstDate11 = findViewById(R.id.climateResultFirstDate11);
-        mClimateResultFirstDate12 = findViewById(R.id.climateResultFirstDate12);
-
-        // Inicjalizacja TextView poszczególnych miesięcy 1-12 dla drugiej daty
-        mClimateResultSecondDate1 = findViewById(R.id.climateResultSecondDate1);
-        mClimateResultSecondDate2 = findViewById(R.id.climateResultSecondDate2);
-        mClimateResultSecondDate3 = findViewById(R.id.climateResultSecondDate3);
-        mClimateResultSecondDate4 = findViewById(R.id.climateResultSecondDate4);
-        mClimateResultSecondDate5 = findViewById(R.id.climateResultSecondDate5);
-        mClimateResultSecondDate6 = findViewById(R.id.climateResultSecondDate6);
-        mClimateResultSecondDate7 = findViewById(R.id.climateResultSecondDate7);
-        mClimateResultSecondDate8 = findViewById(R.id.climateResultSecondDate8);
-        mClimateResultSecondDate9 = findViewById(R.id.climateResultSecondDate9);
-        mClimateResultSecondDate10 = findViewById(R.id.climateResultSecondDate10);
-        mClimateResultSecondDate11 = findViewById(R.id.climateResultSecondDate11);
-        mClimateResultSecondDate12 = findViewById(R.id.climateResultSecondDate12);
+        mHydroResultSecondDate1 = findViewById(R.id.HydroResultSecondDate1);
+        mHydroResultSecondDate2 = findViewById(R.id.HydroResultSecondDate2);
+        mHydroResultSecondDate3 = findViewById(R.id.HydroResultSecondDate3);
+        mHydroResultSecondDate4 = findViewById(R.id.HydroResultSecondDate4);
+        mHydroResultSecondDate5 = findViewById(R.id.HydroResultSecondDate5);
+        mHydroResultSecondDate6 = findViewById(R.id.HydroResultSecondDate6);
+        mHydroResultSecondDate7 = findViewById(R.id.HydroResultSecondDate7);
+        mHydroResultSecondDate8 = findViewById(R.id.HydroResultSecondDate8);
+        mHydroResultSecondDate9 = findViewById(R.id.HydroResultSecondDate9);
+        mHydroResultSecondDate10 = findViewById(R.id.HydroResultSecondDate10);
+        mHydroResultSecondDate11 = findViewById(R.id.HydroResultSecondDate11);
+        mHydroResultSecondDate12 = findViewById(R.id.HydroResultSecondDate12);
 
         // Pobieraie nazwy miasta i dat z poprzedniego activity
         Intent intent = getIntent();
         mFirstYear = intent.getStringExtra("keyFirstDate");
         mSecondYear = intent.getStringExtra("keySecondDate");
         mCityName = intent.getStringExtra("keyCityName");
-
-        infoTextView.setText("Analiza dla punktu pomiarowego " + mCityName);
-        firstDateTextView.setText(mFirstYear);
-        secondDateTextView.setText(mSecondYear);
 
         // Uzyskiwanie permisji do dostępu do plików, by móc pobrać pliki
         int permissionCheck = ContextCompat.checkSelfPermission(this,
@@ -138,80 +127,61 @@ public class AnalyzeClimateActivity extends AppCompatActivity {
             File file1 = new File("/sdcard/Download/" + title1);
             File file2 = new File("/sdcard/Download/" + title2);
 
-            buttonStart.setOnClickListener(new View.OnClickListener() {
+            mButtonUnZipHydro.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
                     // Wywoływanie funkcji getData, zapisywanie wyniku do zmiennej float.
                     float firstDate1 = getData(file1, mFirstYear, "01",
-                            mClimateResultFirstDate1);
+                            mHydroResultFirstDate1);
                     float firstDate2 = getData(file1, mFirstYear, "02",
-                            mClimateResultFirstDate2);
+                            mHydroResultFirstDate2);
                     float firstDate3 = getData(file1, mFirstYear, "03",
-                            mClimateResultFirstDate3);
+                            mHydroResultFirstDate3);
                     float firstDate4 = getData(file1, mFirstYear, "04",
-                            mClimateResultFirstDate4);
+                            mHydroResultFirstDate4);
                     float firstDate5 = getData(file1, mFirstYear, "05",
-                            mClimateResultFirstDate5);
+                            mHydroResultFirstDate5);
                     float firstDate6 = getData(file1, mFirstYear, "06",
-                            mClimateResultFirstDate6);
+                            mHydroResultFirstDate6);
                     float firstDate7 = getData(file1, mFirstYear, "07",
-                            mClimateResultFirstDate7);
+                            mHydroResultFirstDate7);
                     float firstDate8 = getData(file1, mFirstYear, "08",
-                            mClimateResultFirstDate8);
+                            mHydroResultFirstDate8);
                     float firstDate9 = getData(file1, mFirstYear, "09",
-                            mClimateResultFirstDate9);
+                            mHydroResultFirstDate9);
                     float firstDate10 = getData(file1, mFirstYear, "10",
-                            mClimateResultFirstDate10);
+                            mHydroResultFirstDate10);
                     float firstDate11 = getData(file1, mFirstYear, "11",
-                            mClimateResultFirstDate11);
+                            mHydroResultFirstDate11);
                     float firstDate12 = getData(file1, mFirstYear, "12",
-                            mClimateResultFirstDate12);
+                            mHydroResultFirstDate12);
 
                     // Wywoływanie funkcji getData, zapisywanie wyniku do zmiennej float.
                     float secondDate1 = getData(file2, mSecondYear, "01",
-                            mClimateResultSecondDate1);
+                            mHydroResultSecondDate1);
                     float secondDate2 = getData(file2, mSecondYear, "02",
-                            mClimateResultSecondDate2);
+                            mHydroResultSecondDate2);
                     float secondDate3 = getData(file2, mSecondYear, "03",
-                            mClimateResultSecondDate3);
+                            mHydroResultSecondDate3);
                     float secondDate4 = getData(file2, mSecondYear, "04",
-                            mClimateResultSecondDate4);
+                            mHydroResultSecondDate4);
                     float secondDate5 = getData(file2, mSecondYear, "05",
-                            mClimateResultSecondDate5);
+                            mHydroResultSecondDate5);
                     float secondDate6 = getData(file2, mSecondYear, "06",
-                            mClimateResultSecondDate6);
+                            mHydroResultSecondDate6);
                     float secondDate7 = getData(file2, mSecondYear, "07",
-                            mClimateResultSecondDate7);
+                            mHydroResultSecondDate7);
                     float secondDate8 = getData(file2, mSecondYear, "08",
-                            mClimateResultSecondDate8);
+                            mHydroResultSecondDate8);
                     float secondDate9 = getData(file2, mSecondYear, "09",
-                            mClimateResultSecondDate9);
+                            mHydroResultSecondDate9);
                     float secondDate10 = getData(file2, mSecondYear, "10",
-                            mClimateResultSecondDate10);
+                            mHydroResultSecondDate10);
                     float secondDate11 = getData(file2, mSecondYear, "11",
-                            mClimateResultSecondDate11);
+                            mHydroResultSecondDate11);
                     float secondDate12 = getData(file2, mSecondYear, "12",
-                            mClimateResultSecondDate12);
-
-                    // Obliczanie średnich temperatur rocznych, oraz różnicy,
-                    // następnie wyświetlanie wyniku w TextView
-                    float averageFirstDate = (firstDate1 + firstDate2 + firstDate3 + firstDate4 +
-                            firstDate5 + firstDate6 + firstDate7 + firstDate8 + firstDate9 +
-                            firstDate10 + firstDate11 + firstDate12) / 12;
-                    float averageSecondDate = (secondDate1 + secondDate2 + secondDate3 + secondDate4 +
-                            secondDate5 + secondDate6 + secondDate7 + secondDate8 + secondDate9 +
-                            secondDate10 + secondDate11 + secondDate12) / 12;
-                    float finalAverageScore = averageFirstDate - averageSecondDate;
-
-                    if (averageFirstDate > averageSecondDate) {
-                        mFinalResultTextView.setText("Średnia roczna temperatura zmalała o " +
-                                new DecimalFormat("###.##").format(finalAverageScore) + "°.");
-                    } else {
-                        finalAverageScore *= -1;
-                        mFinalResultTextView.setText("Średnia roczna temperatura zwiększyła się o " +
-                                new DecimalFormat("###.##").format(finalAverageScore) + "°.");
-                    }
+                            mHydroResultSecondDate12);
                 }
             });
         }
@@ -224,8 +194,8 @@ public class AnalyzeClimateActivity extends AppCompatActivity {
     public String returnStationCode(String cityName) {
         String stationCode = null;
 
-        if (cityName.equals("Pszczyna")) {
-            stationCode = "249180010";
+        if (cityName.equals("Warszawa-Czajka")) {
+            stationCode = "252200220";
         } else if (cityName.equals("Cieszyn")) {
             stationCode = "249180130";
         } else if (cityName.equals("Brenna")) {
@@ -290,28 +260,28 @@ public class AnalyzeClimateActivity extends AppCompatActivity {
         String URL;
 
         if (year >= 1951 && year <= 1955) {
-            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/klimat/1951_1955/1951_1955_m_k.zip";
+            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/opad/1951_1955/1951_1955_m_o.zip";
         } else if (year >= 1956 && year <= 1960) {
-            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/klimat/1956_1960/1956_1960_m_k.zip";
+            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/opad/1956_1960/1956_1960_m_o.zip";
         } else if (year >= 1961 && year <= 1965) {
-            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/klimat/1961_1965/1961_1965_m_k.zip";
+            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/opad/1961_1965/1961_1965_m_o.zip";
         } else if (year >= 1966 && year <= 1970) {
-            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/klimat/1966_1970/1966_1970_m_k.zip";
+            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/opad/1966_1970/1966_1970_m_o.zip";
         } else if (year >= 1971 && year <= 1975) {
-            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/klimat/1971_1975/1971_1975_m_k.zip";
+            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/opad/1971_1975/1971_1975_m_o.zip";
         } else if (year >= 1976 && year <= 1980) {
-            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/klimat/1976_1980/1976_1980_m_k.zip";
+            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/opad/1976_1980/1976_1980_m_o.zip";
         } else if (year >= 1981 && year <= 1985) {
-            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/klimat/1981_1985/1981_1985_m_k.zip";
+            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/opad/1981_1985/1981_1985_m_o.zip";
         } else if (year >= 1986 && year <= 1990) {
-            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/klimat/1986_1990/1986_1990_m_k.zip";
+            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/opad/1986_1990/1986_1990_m_o.zip";
         } else if (year >= 1991 && year <= 1995) {
-            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/klimat/1991_1995/1991_1995_m_k.zip";
+            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/opad/1991_1995/1991_1995_m_o.zip";
         } else if (year >= 1996 && year <= 2000) {
-            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/klimat/1996_2000/1996_2000_m_k.zip";
+            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/opad/1996_2000/1996_2000_m_o.zip";
         } else {
-            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/klimat/" +
-                    year + "/" + year + "_m_k.zip";
+            URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/opad/" +
+                    year + "/" + year + "_m_o.zip";
         }
 
         return URL;
@@ -325,27 +295,27 @@ public class AnalyzeClimateActivity extends AppCompatActivity {
         String yearFile;
 
         if (year >= 1951 && year <= 1955) {
-            yearFile = "k_m_t_1951_1955.csv";
+            yearFile = "o_m_1950_1955.csv";
         } else if (year >= 1956 && year <= 1960) {
-            yearFile = "k_m_t_1956_1960.csv";
+            yearFile = "o_m_1956_1960.csv";
         } else if (year >= 1961 && year <= 1965) {
-            yearFile = "k_m_t_1961_1965.csv";
+            yearFile = "o_m_1961_1965.csv";
         } else if (year >= 1966 && year <= 1970) {
-            yearFile = "k_m_t_1966_1970.csv";
+            yearFile = "o_m_1966_1970.csv";
         } else if (year >= 1971 && year <= 1975) {
-            yearFile = "k_m_t_1971_1975.csv";
+            yearFile = "o_m_1971_1975.csv";
         } else if (year >= 1976 && year <= 1980) {
-            yearFile = "k_m_t_1976_1980.csv";
+            yearFile = "o_m_1976_1980.csv";
         } else if (year >= 1981 && year <= 1985) {
-            yearFile = "k_m_t_1981_1985.csv";
+            yearFile = "o_m_1981_1985.csv";
         } else if (year >= 1986 && year <= 1990) {
-            yearFile = "k_m_t_1986_1990.csv";
+            yearFile = "o_m_1986_1990.csv";
         } else if (year >= 1991 && year <= 1995) {
-            yearFile = "k_m_t_1991_1995.csv";
+            yearFile = "o_m_1991_1995.csv";
         } else if (year >= 1996 && year <= 2000) {
-            yearFile = "k_m_t_1996_2000.csv";
+            yearFile = "o_m_1996_2000.csv";
         } else {
-            yearFile = "k_m_t_" + year + ".csv";
+            yearFile = "o_m_" + year + ".csv";
         }
 
         return yearFile;
@@ -378,12 +348,12 @@ public class AnalyzeClimateActivity extends AppCompatActivity {
                 for (int i = 0; i < dataList.size(); i++) {
                     if (dataList.get(i).equals(stationCode) && dataList.get(i + 2).equals(year) && dataList.get(i + 3).equals(month)) {
                         average = Float.parseFloat(dataList.get(i + 4));
-                        textView.setText(average + "°");
+                        textView.setText(average + " mm");
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                Toast.makeText(AnalyzeClimateActivity.this, "Nie znaleziono pliku", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AnalyzeHydroActivity.this, "Nie znaleziono pliku", Toast.LENGTH_SHORT).show();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -434,5 +404,5 @@ public class AnalyzeClimateActivity extends AppCompatActivity {
             zipInputStream.close();
         }
     }
-}
 
+}
