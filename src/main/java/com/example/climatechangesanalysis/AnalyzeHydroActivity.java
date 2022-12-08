@@ -7,7 +7,6 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.DownloadManager;
-import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -17,9 +16,9 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.Html;
 import android.view.View;
 import android.webkit.URLUtil;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,7 +35,6 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -53,15 +51,10 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
             mHydroResultSecondDate10, mHydroResultSecondDate11, mHydroResultSecondDate12;
 
     private TextView mTextViewTitleHydro, mTextViewFirstDate, mTextViewSecondDate, mTextViewFinalResult;
-    private Button mButtonUnZipHydro;
     private String mCityName, mFirstYear, mSecondYear;
     private static boolean noData;
     private ProgressBar mProgressBar;
-
     public File file1, file2;
-
-
-
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -73,7 +66,6 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
         mTextViewFirstDate = findViewById(R.id.HydroResultFirstDate);
         mTextViewSecondDate = findViewById(R.id.HydroResultSecondDate);
         mTextViewFinalResult = findViewById(R.id.textViewFinalResultHydro);
-        mButtonUnZipHydro = findViewById(R.id.buttonUnZipHydro);
         mProgressBar = findViewById(R.id.progressBar);
 
         mHydroResultFirstDate1 = findViewById(R.id.HydroResultFirstDate1);
@@ -111,6 +103,7 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
         mTextViewTitleHydro.setText("Analiza dla punktu pomiarowego " + mCityName);
         mTextViewFirstDate.setText(mFirstYear);
         mTextViewSecondDate.setText(mSecondYear);
+        noData = false;
 
         // Uzyskiwanie permisji do dostępu do plików, by móc pobrać pliki
         int permissionCheck = ContextCompat.checkSelfPermission(this,
@@ -120,7 +113,6 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]
                     {Manifest.permission.WRITE_EXTERNAL_STORAGE}, 10);
         } else {
-
             // Pobieranie plików dla pierwszej daty za pomocą Download Managera.
             String URL1 = makeURL(Integer.parseInt(mFirstYear));
             String URL2 = makeURL(Integer.parseInt(mSecondYear));
@@ -151,45 +143,22 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
             file1 = new File("/sdcard/Download/" + title1);
             file2 = new File("/sdcard/Download/" + title2);
 
-
-
             registerReceiver(onComplete, new IntentFilter(downloadManager2.ACTION_DOWNLOAD_COMPLETE));
-
-//            while (f1 == false) {
-//                if (file1.exists()) {
-//                    f1 = true;
-//                    System.out.println("YES =============================");
-//                }
-//            }
-//
-//            while (f2 == false) {
-//                if (file2.exists()) {
-//                    f2 = true;
-//                    System.out.println("YES =============================");
-//                }
-//            }
-
-
-            mButtonUnZipHydro.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                }
-            });
         }
     }
 
-        @Override
-        public void onDestroy() {
-            super.onDestroy();
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(onComplete);
+    }
 
-            unregisterReceiver(onComplete);
-        }
-
-    BroadcastReceiver onComplete=new BroadcastReceiver() {
+    /*
+     * Sprawdza czy został pobrany plik. Jeśli tak wykonuje dalsze działania.
+     */
+    BroadcastReceiver onComplete = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            noData = false;
 
             ArrayList<String> firstDateList = new ArrayList<>();
             ArrayList<String> secondDateList = new ArrayList<>();
@@ -265,8 +234,9 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
                     mTextViewFinalResult.setText("Średnia roczna suma opadów zmalała o " +
                             new DecimalFormat("###.##").format(finalAverageScore) + " mm.");
                 } else {
-                    mTextViewFinalResult.setText("Wynik Niepewny.\nŚrednia roczna suma opadów zmalała o " +
-                            new DecimalFormat("###.##").format(finalAverageScore) + " mm.");
+                    mTextViewFinalResult.setText(Html.fromHtml("<font color=red>" + "Wynik niepewny." +
+                            "</font><br>" + "Średnia roczna suma opadów zmalała o " +
+                            new DecimalFormat("###.##").format(finalAverageScore) + " mm."));
                 }
             } else {
                 finalAverageScore *= -1;
@@ -275,16 +245,16 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
                     mTextViewFinalResult.setText("Średnia roczna suma opadów zwiększyła się o " +
                             new DecimalFormat("###.##").format(finalAverageScore) + " mm.");
                 } else {
-                    mTextViewFinalResult.setText("Wynik niepewny.\nŚrednia roczna suma opadów zwiększyła się o " +
-                            new DecimalFormat("###.##").format(finalAverageScore) + " mm.");
+                    mTextViewFinalResult.setText(Html.fromHtml("<font color=red>" + "Wynik niepewny." +
+                            "</font><br>" + "Średnia roczna suma opadów zwiększyła się o " +
+                            new DecimalFormat("###.##").format(finalAverageScore) + " mm."));
                 }
             }
             mProgressBar.setVisibility(View.INVISIBLE);
         }
-
     };
 
-        /*
+    /*
      * Z powodu nieczytania przez CSVReader polskich znaków, trzeba było użyć ID stacji.
      * Funkcja sprawdza podaną nazwę miejscowości i zwraca jako Stringa odpowienie ID stacji.
      */
@@ -422,7 +392,7 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
                     for (int j = 0; j < strings.length; j++) {
                         dataList.add(strings[j]);
 
-                        if (strings[j].equals(mCityName.toUpperCase())) {
+                        if (strings[j].equals(mCityName.toUpperCase()) && strings[j + 1].equals(year)) {
                             counter++;
                         }
 

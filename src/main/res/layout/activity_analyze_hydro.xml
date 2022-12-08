@@ -510,25 +510,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttonUnZipHydro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Start"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFinalResultHydro" />
-
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
-        android:layout_width="223dp"
-        android:layout_height="191dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="128dp"
+        android:layout_height="115dp"
+        app:layout_constraintBottom_toBottomOf="@+id/HydroResultFirstDate12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/HydroResultFirstDate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

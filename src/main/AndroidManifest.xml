@@ -39,7 +39,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".AnalyzeActivity"
+            android:name=".AnalyzeAcroActivity"
             android:exported="false" />
         <activity
             android:name=".ActivityAboutProgram"

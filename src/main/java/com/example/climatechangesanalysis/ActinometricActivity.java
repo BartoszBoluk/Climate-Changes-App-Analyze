@@ -111,7 +111,7 @@ public class ActinometricActivity extends AppCompatActivity {
 
 
     public void startActivity() {
-        Intent intent = new Intent(this, AnalyzeActivity.class);
+        Intent intent = new Intent(this, AnalyzeAcroActivity.class);
         intent.putExtra("keyCityName", mSendCityName);
         intent.putExtra("keyFirstDate", mFirstDate.getText().toString());
         intent.putExtra("keySecondDate", mSecondDate.getText().toString());
