@@ -7,7 +7,11 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.DownloadManager;
+import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
@@ -16,6 +20,7 @@ import android.os.Environment;
 import android.view.View;
 import android.webkit.URLUtil;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +36,7 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -50,6 +56,12 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
     private Button mButtonUnZipHydro;
     private String mCityName, mFirstYear, mSecondYear;
     private static boolean noData;
+    private ProgressBar mProgressBar;
+
+    public File file1, file2;
+
+
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -62,6 +74,7 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
         mTextViewSecondDate = findViewById(R.id.HydroResultSecondDate);
         mTextViewFinalResult = findViewById(R.id.textViewFinalResultHydro);
         mButtonUnZipHydro = findViewById(R.id.buttonUnZipHydro);
+        mProgressBar = findViewById(R.id.progressBar);
 
         mHydroResultFirstDate1 = findViewById(R.id.HydroResultFirstDate1);
         mHydroResultFirstDate2 = findViewById(R.id.HydroResultFirstDate2);
@@ -135,102 +148,143 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
             DownloadManager downloadManager2 = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
             downloadManager2.enqueue(request2);
 
-            File file1 = new File("/sdcard/Download/" + title1);
-            File file2 = new File("/sdcard/Download/" + title2);
+            file1 = new File("/sdcard/Download/" + title1);
+            file2 = new File("/sdcard/Download/" + title2);
+
+
+
+            registerReceiver(onComplete, new IntentFilter(downloadManager2.ACTION_DOWNLOAD_COMPLETE));
+
+//            while (f1 == false) {
+//                if (file1.exists()) {
+//                    f1 = true;
+//                    System.out.println("YES =============================");
+//                }
+//            }
+//
+//            while (f2 == false) {
+//                if (file2.exists()) {
+//                    f2 = true;
+//                    System.out.println("YES =============================");
+//                }
+//            }
+
 
             mButtonUnZipHydro.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    noData = false;
-//
-                    // Wywoływanie funkcji getData, zapisywanie wyniku do zmiennej float.
-                    float firstDate1 = getData(file1, mFirstYear, "01",
-                            mHydroResultFirstDate1);
-                    float firstDate2 = getData(file1, mFirstYear, "02",
-                            mHydroResultFirstDate2);
-                    float firstDate3 = getData(file1, mFirstYear, "03",
-                            mHydroResultFirstDate3);
-                    float firstDate4 = getData(file1, mFirstYear, "04",
-                            mHydroResultFirstDate4);
-                    float firstDate5 = getData(file1, mFirstYear, "05",
-                            mHydroResultFirstDate5);
-                    float firstDate6 = getData(file1, mFirstYear, "06",
-                            mHydroResultFirstDate6);
-                    float firstDate7 = getData(file1, mFirstYear, "07",
-                            mHydroResultFirstDate7);
-                    float firstDate8 = getData(file1, mFirstYear, "08",
-                            mHydroResultFirstDate8);
-                    float firstDate9 = getData(file1, mFirstYear, "09",
-                            mHydroResultFirstDate9);
-                    float firstDate10 = getData(file1, mFirstYear, "10",
-                            mHydroResultFirstDate10);
-                    float firstDate11 = getData(file1, mFirstYear, "11",
-                            mHydroResultFirstDate11);
-                    float firstDate12 = getData(file1, mFirstYear, "12",
-                            mHydroResultFirstDate12);
-
-                    // Wywoływanie funkcji getData, zapisywanie wyniku do zmiennej float.
-                    float secondDate1 = getData(file2, mSecondYear, "01",
-                            mHydroResultSecondDate1);
-                    float secondDate2 = getData(file2, mSecondYear, "02",
-                            mHydroResultSecondDate2);
-                    float secondDate3 = getData(file2, mSecondYear, "03",
-                            mHydroResultSecondDate3);
-                    float secondDate4 = getData(file2, mSecondYear, "04",
-                            mHydroResultSecondDate4);
-                    float secondDate5 = getData(file2, mSecondYear, "05",
-                            mHydroResultSecondDate5);
-                    float secondDate6 = getData(file2, mSecondYear, "06",
-                            mHydroResultSecondDate6);
-                    float secondDate7 = getData(file2, mSecondYear, "07",
-                            mHydroResultSecondDate7);
-                    float secondDate8 = getData(file2, mSecondYear, "08",
-                            mHydroResultSecondDate8);
-                    float secondDate9 = getData(file2, mSecondYear, "09",
-                            mHydroResultSecondDate9);
-                    float secondDate10 = getData(file2, mSecondYear, "10",
-                            mHydroResultSecondDate10);
-                    float secondDate11 = getData(file2, mSecondYear, "11",
-                            mHydroResultSecondDate11);
-                    float secondDate12 = getData(file2, mSecondYear, "12",
-                            mHydroResultSecondDate12);
-
-                    // Obliczanie średnich temperatur rocznych, oraz różnicy,
-                    // następnie wyświetlanie wyniku w TextView
-                    float averageFirstDate = (firstDate1 + firstDate2 + firstDate3 + firstDate4 +
-                            firstDate5 + firstDate6 + firstDate7 + firstDate8 + firstDate9 +
-                            firstDate10 + firstDate11 + firstDate12) / 12;
-                    float averageSecondDate = (secondDate1 + secondDate2 + secondDate3 + secondDate4 +
-                            secondDate5 + secondDate6 + secondDate7 + secondDate8 + secondDate9 +
-                            secondDate10 + secondDate11 + secondDate12) / 12;
-                    float finalAverageScore = averageFirstDate - averageSecondDate;
-
-                    if (averageFirstDate > averageSecondDate) {
-                        if (noData == false) {
-                            mTextViewFinalResult.setText("Średnia roczna suma opadów zmalała o " +
-                                    new DecimalFormat("###.##").format(finalAverageScore) + " mm.");
-                        } else {
-                            mTextViewFinalResult.setText("Wynik Niepewny.\nŚrednia roczna suma opadów zmalała o " +
-                                    new DecimalFormat("###.##").format(finalAverageScore) + " mm.");
-                        }
-                    } else {
-                        finalAverageScore *= -1;
-
-                        if (noData == false) {
-                            mTextViewFinalResult.setText("Średnia roczna suma opadów zwiększyła się o " +
-                                    new DecimalFormat("###.##").format(finalAverageScore) + " mm.");
-                        } else {
-                            mTextViewFinalResult.setText("Wynik niepewny.\nŚrednia roczna suma opadów zwiększyła się o " +
-                                    new DecimalFormat("###.##").format(finalAverageScore) + " mm.");
-                        }
-                    }
                 }
             });
         }
     }
 
-    /*
+        @Override
+        public void onDestroy() {
+            super.onDestroy();
+
+            unregisterReceiver(onComplete);
+        }
+
+    BroadcastReceiver onComplete=new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            noData = false;
+
+            ArrayList<String> firstDateList = new ArrayList<>();
+            ArrayList<String> secondDateList = new ArrayList<>();
+
+            returnDatList(file1, mFirstYear, firstDateList);
+
+            // Wywoływanie funkcji getData, zapisywanie wyniku do zmiennej float.
+            float firstDate1 = getData(firstDateList, mFirstYear, "01",
+                    mHydroResultFirstDate1);
+            float firstDate2 = getData(firstDateList, mFirstYear, "02",
+                    mHydroResultFirstDate2);
+            float firstDate3 = getData(firstDateList, mFirstYear, "03",
+                    mHydroResultFirstDate3);
+            float firstDate4 = getData(firstDateList, mFirstYear, "04",
+                    mHydroResultFirstDate4);
+            float firstDate5 = getData(firstDateList, mFirstYear, "05",
+                    mHydroResultFirstDate5);
+            float firstDate6 = getData(firstDateList, mFirstYear, "06",
+                    mHydroResultFirstDate6);
+            float firstDate7 = getData(firstDateList, mFirstYear, "07",
+                    mHydroResultFirstDate7);
+            float firstDate8 = getData(firstDateList, mFirstYear, "08",
+                    mHydroResultFirstDate8);
+            float firstDate9 = getData(firstDateList, mFirstYear, "09",
+                    mHydroResultFirstDate9);
+            float firstDate10 = getData(firstDateList, mFirstYear, "10",
+                    mHydroResultFirstDate10);
+            float firstDate11 = getData(firstDateList, mFirstYear, "11",
+                    mHydroResultFirstDate11);
+            float firstDate12 = getData(firstDateList, mFirstYear, "12",
+                    mHydroResultFirstDate12);
+
+            returnDatList(file2, mSecondYear, secondDateList);
+
+            // Wywoływanie funkcji getData, zapisywanie wyniku do zmiennej float.
+            float secondDate1 = getData(secondDateList, mSecondYear, "01",
+                    mHydroResultSecondDate1);
+            float secondDate2 = getData(secondDateList, mSecondYear, "02",
+                    mHydroResultSecondDate2);
+            float secondDate3 = getData(secondDateList, mSecondYear, "03",
+                    mHydroResultSecondDate3);
+            float secondDate4 = getData(secondDateList, mSecondYear, "04",
+                    mHydroResultSecondDate4);
+            float secondDate5 = getData(secondDateList, mSecondYear, "05",
+                    mHydroResultSecondDate5);
+            float secondDate6 = getData(secondDateList, mSecondYear, "06",
+                    mHydroResultSecondDate6);
+            float secondDate7 = getData(secondDateList, mSecondYear, "07",
+                    mHydroResultSecondDate7);
+            float secondDate8 = getData(secondDateList, mSecondYear, "08",
+                    mHydroResultSecondDate8);
+            float secondDate9 = getData(secondDateList, mSecondYear, "09",
+                    mHydroResultSecondDate9);
+            float secondDate10 = getData(secondDateList, mSecondYear, "10",
+                    mHydroResultSecondDate10);
+            float secondDate11 = getData(secondDateList, mSecondYear, "11",
+                    mHydroResultSecondDate11);
+            float secondDate12 = getData(secondDateList, mSecondYear, "12",
+                    mHydroResultSecondDate12);
+
+            // Obliczanie średnich temperatur rocznych, oraz różnicy,
+            // następnie wyświetlanie wyniku w TextView
+            float averageFirstDate = (firstDate1 + firstDate2 + firstDate3 + firstDate4 +
+                    firstDate5 + firstDate6 + firstDate7 + firstDate8 + firstDate9 +
+                    firstDate10 + firstDate11 + firstDate12) / 12;
+            float averageSecondDate = (secondDate1 + secondDate2 + secondDate3 + secondDate4 +
+                    secondDate5 + secondDate6 + secondDate7 + secondDate8 + secondDate9 +
+                    secondDate10 + secondDate11 + secondDate12) / 12;
+            float finalAverageScore = averageFirstDate - averageSecondDate;
+
+            if (averageFirstDate > averageSecondDate) {
+                if (noData == false) {
+                    mTextViewFinalResult.setText("Średnia roczna suma opadów zmalała o " +
+                            new DecimalFormat("###.##").format(finalAverageScore) + " mm.");
+                } else {
+                    mTextViewFinalResult.setText("Wynik Niepewny.\nŚrednia roczna suma opadów zmalała o " +
+                            new DecimalFormat("###.##").format(finalAverageScore) + " mm.");
+                }
+            } else {
+                finalAverageScore *= -1;
+
+                if (noData == false) {
+                    mTextViewFinalResult.setText("Średnia roczna suma opadów zwiększyła się o " +
+                            new DecimalFormat("###.##").format(finalAverageScore) + " mm.");
+                } else {
+                    mTextViewFinalResult.setText("Wynik niepewny.\nŚrednia roczna suma opadów zwiększyła się o " +
+                            new DecimalFormat("###.##").format(finalAverageScore) + " mm.");
+                }
+            }
+            mProgressBar.setVisibility(View.INVISIBLE);
+        }
+
+    };
+
+        /*
      * Z powodu nieczytania przez CSVReader polskich znaków, trzeba było użyć ID stacji.
      * Funkcja sprawdza podaną nazwę miejscowości i zwraca jako Stringa odpowienie ID stacji.
      */
@@ -350,43 +404,63 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
     }
 
     /*
-     * Funckja odczytuje dane z pliku i zwraca wartość średniej miesięcznej temperatury, znajdującej
-     * się w pliku .csv. Jako argumenty podajemy plik, rok, miesiąc, oraz TextView.
+     * Funkcja rozpakowuje plik zip. Następnie zapisuje dane do ArrayListy.
      */
-    public float getData(File file, String year, String month, TextView textView) {
-        float average = 0;
-
+    public ArrayList<String> returnDatList(File file, String year, ArrayList<String> dataList) {
         try {
             unZip(file, new File("/sdcard/Download"));
             try {
                 File csvfile = new File("/sdcard/Download/" + returnFileName(Integer.parseInt(year)));
                 CSVReader reader = new CSVReader(new FileReader(csvfile.getAbsolutePath()));
                 List<String[]> nextLine = reader.readAll();
-                ArrayList<String> dataList = new ArrayList<>();
+
+
+                int counter = 0;
 
                 for (int i = 0; i < nextLine.size(); i++) {
                     String[] strings = nextLine.get(i);
                     for (int j = 0; j < strings.length; j++) {
                         dataList.add(strings[j]);
+
+                        if (strings[j].equals(mCityName.toUpperCase())) {
+                            counter++;
+                        }
+
+                        if (counter == 13) {
+                            break;
+                        }
                     }
                 }
-
-                System.out.println("TEST: " + dataList.size());
-
-                String stationCode = returnStationCode(mCityName);
-
-                for (int i = 0; i < dataList.size(); i++) {
-                    if (dataList.get(i).equals(stationCode) && dataList.get(i + 2).equals(year) && dataList.get(i + 3).equals(month)) {
-                        average = Float.parseFloat(dataList.get(i + 4));
-                        textView.setText(average + " mm");
-                    }
-                }
-            } catch (Exception e) {
+            } catch (FileNotFoundException e) {
                 e.printStackTrace();
-                Toast.makeText(AnalyzeHydroActivity.this, "Nie znaleziono pliku", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AnalyzeHydroActivity.this, "Nie znaleziono pliku",
+                        Toast.LENGTH_SHORT).show();
+            } catch (IOException e) {
+                e.printStackTrace();
+                Toast.makeText(AnalyzeHydroActivity.this, "Nie udało się wykonać polecenia",
+                        Toast.LENGTH_SHORT).show();
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        return dataList;
+    }
+
+    /*
+     * Funckja porównuje ID stacji, miesiąc i rok. Jeśli się zgadzają zwraca wartość, oraz zapisuje
+     * w TextView.
+     */
+    public float getData(ArrayList<String> list, String year, String month, TextView textView) {
+        float value = 0;
+
+        String stationCode = returnStationCode(mCityName);
+
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).equals(stationCode) && list.get(i + 2).equals(year) && list.get(i + 3).equals(month)) {
+                value = Float.parseFloat(list.get(i + 4));
+                textView.setText(value + " mm");
+            }
         }
 
         if (textView.getText().equals(".")) {
@@ -395,7 +469,7 @@ public class AnalyzeHydroActivity extends AppCompatActivity {
             noData = true;
         }
 
-        return average;
+        return value;
     }
 
     /*
